@@ -1,0 +1,52 @@
+/*!
+ * Copyright (c) 2019 Herborn Software
+ *
+ * @package hs
+ */
+
+
+@mixin support-transition($attr, $property:'') {
+  @if (str-length($property) > 0) {
+    $property: -$property;
+  }
+  -webkit-transition#{$property}: $attr;
+  -moz-transition#{$property}: $attr;
+  -o-transition#{$property}: $attr;
+  transition#{$property}: $attr;
+}
+
+@mixin support-transform($val, $property:'') {
+  @if (str-length($property) > 0) {
+    $property: -$property;
+  }
+  -webkit-transform#{$property}: $val;
+  -moz-transform#{$property}: $val;
+  -o-transform#{$property}: $val;
+  transform#{$property}: $val;
+}
+
+
+@mixin support-animation($attr, $property:'') {
+  @if (str-length($property) > 0) {
+    $property: -$property;
+  }
+  -webkit-animation#{$property}: $attr;
+  -moz-animation#{$property}: $attr;
+  -o-animation#{$property}: $attr;
+  animation#{$property}: $attr;
+}
+
+@mixin support-box-shadow($value) {
+  box-shadow: $value;
+  -moz-box-shadow: $value;
+  -webkit-box-shadow: $value;
+  -o-box-shadow: $value;
+}
+
+@mixin position($position, $top, $right: $top, $bottom: $top, $left: $right) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}

@@ -1,0 +1,82 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Podcast"
+msgid_plural "Podcasts"
+msgstr[0] "Podcast"
+msgstr[1] "Podcasts"
+
+msgid "All Podcasts"
+msgstr "Alle Podcasts"
+
+msgid "View Podcast"
+msgstr "Podcast ansehen"
+
+msgid "Add New Podcast"
+msgstr "Podcast erstellen"
+
+msgid "Add New"
+msgstr "Podcast erstellen"
+
+msgid "Edit Podcast"
+msgstr "Podcast bearbeiten"
+
+msgid "Update Podcast"
+msgstr "Podcast aktualisieren"
+
+msgid "Search Podcast"
+msgstr "Podcast suchen"
+
+msgid "Podcast not found"
+msgstr "Podcast nicht gefunden"
+
+msgid "Podcast Not found in Trash"
+msgstr "Podcast nicht im Papierkorb gefunden"
+
+msgid "podcasts"
+msgstr "podcasts"
+
+msgid "Podcasts with Description and Audio"
+msgstr "Podcast mit Beschreibung und einem Audio-File"
+
+# SERIES
+msgid "Podcast Series"
+msgstr "Podcast Serie"
+
+msgid "Series"
+msgid_plural "Series"
+msgstr[0] "Serie"
+msgstr[1] "Serien"
+
+msgid "Search Series"
+msgstr "Serie Suchen"
+
+msgid "All Series"
+msgstr "Alle Serien"
+
+msgid "Parent Series"
+msgstr "Übergeordnete Serie"
+
+msgid "Edit Series"
+msgstr "Serie bearbeiten"
+
+msgid "Update Series"
+msgstr "Serie aktualisieren"
+
+msgid "Add New Series"
+msgstr "Serie erstellen"
+
+# PODCASTS
+#~ msgid "Podcasts"
+#~ msgstr "Podcasts"

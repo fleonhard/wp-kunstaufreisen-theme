@@ -1,0 +1,252 @@
+/*!
+ * Copyright (c) 2019 Herborn Software
+ *
+ * @package hs
+ */
+
+$icomoon-font-family: "hs-icon" !default;
+$icomoon-font-path: "../fonts" !default;
+
+$hs-down: "\e903";
+$hs-up: "\e904";
+$hs-menu: "\e902";
+$hs-next: "\e900";
+$hs-prev: "\e901";
+$hs-tag: "\e935";
+$hs-comment: "\e96b";
+$hs-quotes-left: "\e977";
+$hs-quotes-right: "\e978";
+$hs-spinner: "\e982";
+$hs-link: "\e9cb";
+$hs-watched: "\e9ce";
+$hs-close: "\ea0f";
+$hs-checkmark: "\ea10";
+$hs-login: "\ea13";
+$hs-logout: "\ea14";
+$hs-load: "\ea2e";
+$hs-share: "\ea82";
+$hs-mail: "\ea84";
+$hs-g-plus: "\ea8b";
+$hs-hangouts: "\ea8e";
+$hs-facebook: "\ea90";
+$hs-instagram: "\ea92";
+$hs-whatsapp: "\ea93";
+$hs-spotify: "\ea94";
+$hs-telegram: "\ea95";
+$hs-twitter: "\ea96";
+$hs-youtube: "\ea9d";
+$hs-twitch: "\ea9f";
+$hs-steam: "\eaac";
+$hs-github: "\eab0";
+$hs-linkedin2: "\eaca";
+$hs-stackoverflow: "\ead0";
+$hs-pinterest: "\ead2";
+
+
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?e8max3');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?e8max3#iefix') format('embedded-opentype'),
+  url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?e8max3') format('truetype'),
+  url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?e8max3') format('woff'),
+  url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?e8max3##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.hs-icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.hs-down {
+  &:before {
+    content: $hs-down;
+  }
+}
+.hs-up {
+  &:before {
+    content: $hs-up;
+  }
+}
+.hs-menu {
+  &:before {
+    content: $hs-menu;
+  }
+}
+.hs-next {
+  &:before {
+    content: $hs-next;
+  }
+}
+.hs-prev {
+  &:before {
+    content: $hs-prev;
+  }
+}
+.hs-tag {
+  &:before {
+    content: $hs-tag;
+  }
+}
+.hs-comment {
+  &:before {
+    content: $hs-comment;
+  }
+}
+.hs-quotes-left {
+  &:before {
+    content: $hs-quotes-left;
+  }
+}
+.hs-quotes-right {
+  &:before {
+    content: $hs-quotes-right;
+  }
+}
+.hs-spinner {
+  &:before {
+    content: $hs-spinner;
+  }
+}
+.hs-link {
+  &:before {
+    content: $hs-link;
+  }
+}
+.hs-watched {
+  &:before {
+    content: $hs-watched;
+  }
+}
+.hs-close {
+  &:before {
+    content: $hs-close;
+  }
+}
+.hs-checkmark {
+  &:before {
+    content: $hs-checkmark;
+  }
+}
+.hs-login {
+  &:before {
+    content: $hs-login;
+  }
+}
+.hs-logout {
+  &:before {
+    content: $hs-logout;
+  }
+}
+.hs-load {
+  &:before {
+    content: $hs-load;
+  }
+}
+.hs-share {
+  &:before {
+    content: $hs-share;
+  }
+}
+.hs-mail {
+  &:before {
+    content: $hs-mail;
+  }
+}
+.hs-g-plus {
+  &:before {
+    content: $hs-g-plus;
+  }
+}
+.hs-hangouts {
+  &:before {
+    content: $hs-hangouts;
+  }
+}
+.hs-facebook {
+  &:before {
+    content: $hs-facebook;
+  }
+}
+.hs-instagram {
+  &:before {
+    content: $hs-instagram;
+  }
+}
+.hs-whatsapp {
+  &:before {
+    content: $hs-whatsapp;
+  }
+}
+.hs-spotify {
+  &:before {
+    content: $hs-spotify;
+  }
+}
+.hs-telegram {
+  &:before {
+    content: $hs-telegram;
+  }
+}
+.hs-twitter {
+  &:before {
+    content: $hs-twitter;
+  }
+}
+.hs-youtube {
+  &:before {
+    content: $hs-youtube;
+  }
+}
+.hs-twitch {
+  &:before {
+    content: $hs-twitch;
+  }
+}
+.hs-steam {
+  &:before {
+    content: $hs-steam;
+  }
+}
+.hs-github {
+  &:before {
+    content: $hs-github;
+  }
+}
+.hs-linkedin2 {
+  &:before {
+    content: $hs-linkedin2;
+  }
+}
+.hs-stackoverflow {
+  &:before {
+    content: $hs-stackoverflow;
+  }
+}
+.hs-pinterest {
+  &:before {
+    content: $hs-pinterest;
+  }
+}
+
+
+
+
+
+
+
+
+

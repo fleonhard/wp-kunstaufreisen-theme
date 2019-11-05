@@ -1,0 +1,66 @@
+# PODCASTS
+msgid "Podcast"
+msgid_plural "Podcasts"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "All Podcasts"
+msgstr ""
+
+msgid "View Podcast"
+msgstr ""
+
+msgid "Add New Podcast"
+msgstr ""
+
+msgid "Add New"
+msgstr ""
+
+msgid "Edit Podcast"
+msgstr ""
+
+msgid "Update Podcast"
+msgstr ""
+
+msgid "Search Podcast"
+msgstr ""
+
+msgid "Podcast not found"
+msgstr ""
+
+msgid "Podcast Not found in Trash"
+msgstr ""
+
+msgid "podcasts"
+msgstr ""
+
+msgid "Podcasts with Description and Audio"
+msgstr ""
+
+#SERIES
+msgid "Podcast Series"
+msgstr ""
+
+msgid "Series"
+msgid_plural "Series"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Search Series"
+msgstr ""
+
+msgid "All Series"
+msgstr ""
+
+msgid "Parent Series"
+msgstr ""
+
+msgid "Edit Series"
+msgstr ""
+
+msgid "Update Series"
+msgstr ""
+
+msgid "Add New Series"
+msgstr ""
+
