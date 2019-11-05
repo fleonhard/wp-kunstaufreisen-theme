@@ -4462,12 +4462,14 @@ button.bg-light:hover,
 button.bg-light:focus {
   background-color: #dae0e5 !important; }
 
-.bg-dark {
+.bg-dark, .kar-sidebar .kar-widget .kar-widget-title {
   background-color: #343a40 !important; }
 
-a.bg-dark:hover, a.bg-dark:focus,
+a.bg-dark:hover, .kar-sidebar .kar-widget a.kar-widget-title:hover, a.bg-dark:focus, .kar-sidebar .kar-widget a.kar-widget-title:focus,
 button.bg-dark:hover,
-button.bg-dark:focus {
+.kar-sidebar .kar-widget button.kar-widget-title:hover,
+button.bg-dark:focus,
+.kar-sidebar .kar-widget button.kar-widget-title:focus {
   background-color: #1d2124 !important; }
 
 .bg-white {
@@ -4581,7 +4583,7 @@ button.bg-dark:focus {
 .d-inline-block {
   display: inline-block !important; }
 
-.d-block {
+.d-block, .kar-sidebar .kar-widget .kar-widget-title, .kar-sidebar .recentcomments span, .kar-sidebar .recentcomments span a {
   display: block !important; }
 
 .d-table {
@@ -4593,7 +4595,7 @@ button.bg-dark:focus {
 .d-table-cell {
   display: table-cell !important; }
 
-.d-flex {
+.d-flex, .kar-sidebar .cat-item {
   display: flex !important; }
 
 .d-inline-flex {
@@ -4813,7 +4815,7 @@ button.bg-dark:focus {
 .flex-shrink-0 {
   flex-shrink: 0 !important; }
 
-.flex-shrink-1 {
+.flex-shrink-1, .kar-sidebar .cat-item span {
   flex-shrink: 1 !important; }
 
 .justify-content-start {
@@ -5415,7 +5417,7 @@ button.bg-dark:focus {
 .w-75 {
   width: 75% !important; }
 
-.w-100 {
+.w-100, .kar-sidebar .cat-item a {
   width: 100% !important; }
 
 .w-auto {
@@ -5514,7 +5516,7 @@ button.bg-dark:focus {
 .mx-2 {
   margin-right: 0.5rem !important; }
 
-.mb-2,
+.mb-2, .kar-sidebar .kar-widget .kar-widget-title, .kar-sidebar .recentcomments,
 .my-2 {
   margin-bottom: 0.5rem !important; }
 
@@ -5552,7 +5554,7 @@ button.bg-dark:focus {
 .mx-4 {
   margin-right: 1.5rem !important; }
 
-.mb-4,
+.mb-4, .kar-sidebar .kar-widget,
 .my-4 {
   margin-bottom: 1.5rem !important; }
 
@@ -5617,7 +5619,7 @@ button.bg-dark:focus {
 .px-1 {
   padding-left: 0.25rem !important; }
 
-.p-2 {
+.p-2, .kar-sidebar .kar-widget .kar-widget-title, .kar-sidebar .cat-item, .kar-sidebar .cat-item span, .kar-sidebar .recentcomments {
   padding: 0.5rem !important; }
 
 .pt-2,
@@ -7198,7 +7200,7 @@ button.bg-dark:focus {
 .text-right {
   text-align: right !important; }
 
-.text-center {
+.text-center, .kar-sidebar .kar-widget .kar-widget-title {
   text-align: center !important; }
 
 @media (min-width: 576px) {
@@ -7264,13 +7266,13 @@ button.bg-dark:focus {
 .font-italic {
   font-style: italic !important; }
 
-.text-white {
+.text-white, .kar-sidebar .kar-widget .kar-widget-title {
   color: #fff !important; }
 
-.text-primary {
+.text-primary, .kar-sidebar a {
   color: #5d5c5e !important; }
 
-a.text-primary:hover, a.text-primary:focus {
+a.text-primary:hover, .kar-sidebar a:hover, a.text-primary:focus, .kar-sidebar a:focus {
   color: #373637 !important; }
 
 .text-secondary {
@@ -7433,7 +7435,7 @@ a.text-dark:hover, a.text-dark:focus {
  *
  * @package hs
  */
-.article-font {
+.article-font, .kar-sidebar .kar-widget .kar-widget-title {
   font-family: Noto Serif, 'Playfair Display', serif; }
 
 .default-font, body {
@@ -7477,6 +7479,27 @@ header {
     header .site-description {
       font-size: 16px; } }
 
+main a {
+  text-decoration: none;
+  position: relative; }
+  main a:after {
+    border-radius: 1em;
+    border-top: .1em solid currentColor;
+    content: "";
+    position: absolute;
+    right: 50%;
+    bottom: 0;
+    left: 50%;
+    -webkit-transition: all 320ms cubic-bezier(0, 0.5, 0, 1);
+    -moz-transition: all 320ms cubic-bezier(0, 0.5, 0, 1);
+    -o-transition: all 320ms cubic-bezier(0, 0.5, 0, 1);
+    transition: all 320ms cubic-bezier(0, 0.5, 0, 1); }
+  main a:hover, main a:focus {
+    text-decoration: none; }
+    main a:hover:after, main a:focus:after {
+      right: 0;
+      left: 0; }
+
 .header-index {
   height: 75vh; }
 
@@ -7512,5 +7535,20 @@ header {
   background-color: black;
   color: white;
   padding: 20px; }
+
+.kar-sidebar .kar-widget .kar-widget-title {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1em;
+  letter-spacing: 0.2px; }
+.kar-sidebar ul {
+  list-style: none;
+  padding-left: 0; }
+.kar-sidebar .cat-item a {
+  line-height: 1em; }
+.kar-sidebar .recentcomments {
+  font-size: 12px; }
+  .kar-sidebar .recentcomments span, .kar-sidebar .recentcomments span a {
+    font-size: 1rem; }
 
 /*# sourceMappingURL=theme.css.map */

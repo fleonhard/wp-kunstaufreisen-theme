@@ -34,6 +34,19 @@ add_action('after_setup_theme', function () {
     register_nav_menu('primary', 'Header Navigation Menu');
 });
 
+add_action('widgets_init', function () {
+    register_sidebar(
+        array(
+            'name' => __('Main Sidebar', 'kar'),
+            'id' => 'main_sidebar',
+            'description' => __('Sidebar on Main Page', 'kar'),
+            'before_widget' => '<section id="%1$s" class="kar-widget col-12 %2$s">',
+            'after_widget' => '</section>',
+            'before_title' => '<h2 class="kar-widget-title">',
+            'after_title' => '</h2>'
+        )
+    );
+});
 
 function random_lipsum($amount = 1, $what = 'paras', $start = 0)
 {
