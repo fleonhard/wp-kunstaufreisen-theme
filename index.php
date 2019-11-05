@@ -4,26 +4,22 @@
  *
  * @package kar
  */
-$sidebar_active = is_active_sidebar('main_sidebar');
 get_header("index"); ?>
-    <!--        --><?// get_template_part('theme-test'); ?>
-    <main class="site-content container">
-        <div class="row mt-4">
-            <div class="col-12 <?= $sidebar_active ? 'd-md-none' : '' ?>">
-                <? get_template_part('templates/post-loop') ?>
-            </div>
 
-            <? if ($sidebar_active): ?>
-                <div class="col-12 col-md-4 mb-4">
-                    <? get_sidebar('main_sidebar'); ?>
+    <div class="row">
+        <? if (have_posts()): ?>
+            <? while (have_posts()): the_post(); ?>
+                <div class="col-12 mb-4">
+                    <? get_template_part('templates/' . get_post_type() . '/post', get_post_format()); ?>
                 </div>
-            <? endif; ?>
+            <? endwhile; ?>
+        <? endif; ?>
+    </div>
 
-            <div class="col-12 <?= $sidebar_active ? 'col-md-8 d-none d-md-block' : '' ?>">
-                <? get_template_part('templates/post-loop') ?>
-            </div>
+    <div class="mt-4 row">
+        <div class="col-12">
+            <? kar_get_pagination(); ?>
         </div>
-    </main>
-
+    </div>
 
 <? get_footer("index");
