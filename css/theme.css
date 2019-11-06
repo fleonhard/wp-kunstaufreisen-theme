@@ -4462,14 +4462,18 @@ button.bg-light:hover,
 button.bg-light:focus {
   background-color: #dae0e5 !important; }
 
-.bg-dark, .kar-sidebar .kar-widget .kar-widget-title {
+.bg-dark, .kar-sidebar .kar-widget .kar-widget-title, .post-podcast, .post-podcast .mejs-controls {
   background-color: #343a40 !important; }
 
-a.bg-dark:hover, .kar-sidebar .kar-widget a.kar-widget-title:hover, a.bg-dark:focus, .kar-sidebar .kar-widget a.kar-widget-title:focus,
+a.bg-dark:hover, .kar-sidebar .kar-widget a.kar-widget-title:hover, a.post-podcast:hover, .post-podcast a.mejs-controls:hover, a.bg-dark:focus, .kar-sidebar .kar-widget a.kar-widget-title:focus, a.post-podcast:focus, .post-podcast a.mejs-controls:focus,
 button.bg-dark:hover,
 .kar-sidebar .kar-widget button.kar-widget-title:hover,
+button.post-podcast:hover,
+.post-podcast button.mejs-controls:hover,
 button.bg-dark:focus,
-.kar-sidebar .kar-widget button.kar-widget-title:focus {
+.kar-sidebar .kar-widget button.kar-widget-title:focus,
+button.post-podcast:focus,
+.post-podcast button.mejs-controls:focus {
   background-color: #1d2124 !important; }
 
 .bg-white {
@@ -7266,13 +7270,13 @@ button.bg-dark:focus,
 .font-italic {
   font-style: italic !important; }
 
-.text-white, .kar-sidebar .kar-widget .kar-widget-title {
+.text-white, .bg-dark, .kar-sidebar .kar-widget .kar-widget-title, .post-podcast, .post-podcast .mejs-controls, .bg-dark .kar-text-link, .kar-sidebar .kar-widget .kar-widget-title .kar-text-link, .post-podcast .kar-text-link, .bg-dark .kar-link, .kar-sidebar .kar-widget .kar-widget-title .kar-link, .post-podcast .kar-link, .bg-dark .kar-sidebar a, .kar-sidebar .bg-dark a, .kar-sidebar .kar-widget .kar-widget-title a, .post-podcast .kar-sidebar a, .kar-sidebar .post-podcast a {
   color: #fff !important; }
 
-.text-primary, .kar-sidebar a {
+.text-primary, .kar-text-link, .kar-link, .kar-sidebar a {
   color: #5d5c5e !important; }
 
-a.text-primary:hover, .kar-sidebar a:hover, a.text-primary:focus, .kar-sidebar a:focus {
+a.text-primary:hover, a.kar-text-link:hover, a.kar-link:hover, .kar-sidebar a:hover, a.text-primary:focus, a.kar-text-link:focus, a.kar-link:focus, .kar-sidebar a:focus {
   color: #373637 !important; }
 
 .text-secondary {
@@ -7479,10 +7483,17 @@ header {
     header .site-description {
       font-size: 16px; } }
 
-main a {
-  text-decoration: none;
+.kar-text-link, .kar-link, .kar-sidebar a {
+  text-decoration: none; }
+  .kar-text-link:hover, .kar-link:hover, .kar-sidebar a:hover, .kar-text-link:focus, .kar-link:focus, .kar-sidebar a:focus {
+    text-decoration: none; }
+
+.bg-dark .kar-text-link:hover, .kar-sidebar .kar-widget .kar-widget-title .kar-text-link:hover, .post-podcast .kar-text-link:hover, .bg-dark .kar-link:hover, .kar-sidebar .kar-widget .kar-widget-title .kar-link:hover, .post-podcast .kar-link:hover, .bg-dark .kar-sidebar a:hover, .kar-sidebar .bg-dark a:hover, .kar-sidebar .kar-widget .kar-widget-title a:hover, .post-podcast .kar-sidebar a:hover, .kar-sidebar .post-podcast a:hover, .bg-dark .kar-text-link:focus, .kar-sidebar .kar-widget .kar-widget-title .kar-text-link:focus, .post-podcast .kar-text-link:focus, .bg-dark .kar-link:focus, .kar-sidebar .kar-widget .kar-widget-title .kar-link:focus, .post-podcast .kar-link:focus, .bg-dark .kar-sidebar a:focus, .kar-sidebar .bg-dark a:focus, .kar-sidebar .kar-widget .kar-widget-title a:focus, .post-podcast .kar-sidebar a:focus, .kar-sidebar .post-podcast a:focus {
+  color: rgba(255, 255, 255, 0.8) !important; }
+
+.kar-link, .kar-sidebar a {
   position: relative; }
-  main a:after {
+  .kar-link:after, .kar-sidebar a:after {
     border-radius: 1em;
     border-top: .1em solid currentColor;
     content: "";
@@ -7494,11 +7505,9 @@ main a {
     -moz-transition: all 320ms cubic-bezier(0, 0.5, 0, 1);
     -o-transition: all 320ms cubic-bezier(0, 0.5, 0, 1);
     transition: all 320ms cubic-bezier(0, 0.5, 0, 1); }
-  main a:hover, main a:focus {
-    text-decoration: none; }
-    main a:hover:after, main a:focus:after {
-      right: 0;
-      left: 0; }
+  .kar-link:hover:after, .kar-sidebar a:hover:after, .kar-link:focus:after, .kar-sidebar a:focus:after {
+    right: 0;
+    left: 0; }
 
 .header-index {
   height: 75vh; }
@@ -7550,5 +7559,10 @@ main a {
   font-size: 12px; }
   .kar-sidebar .recentcomments span, .kar-sidebar .recentcomments span a {
     font-size: 1rem; }
+
+.post-meta .avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%; }
 
 /*# sourceMappingURL=theme.css.map */

@@ -124,3 +124,143 @@ function add_editor_for_taxonomy($taxonomy) {
         <?php
     }, 10, 2);
 }
+
+function kar_get_embedded_link_url()
+{
+    if (!preg_match('/<a\s[^>]*?href=[\'"](.+?)[\'"]/i', get_the_content(), $links))
+        return false;
+    return esc_url_raw($links[1]);
+}
+
+function kar_get_embedded_img_ids($content = null)
+{
+    $content = $content == null ? get_the_content() : $content;
+    if (!preg_match_all('/<img\s[^>]*?data\-id=[\'"](\d+?)[\'"]/i', $content, $links))
+        return false;
+    return $links[1];
+}
+
+function kar_get_server_url()
+{
+    $http = isset($_SERVER["HTTPS"]) ? 'https://' : 'http://';
+    $referer = $http . $_SERVER["HTTP_HOST"];
+    return $referer . $_SERVER["REQUEST_URI"];
+}
+
+function kar_get_embedded_audio_src()
+{
+    $content = get_the_content();
+    if (preg_match_all('/<audio\s[^>]*?src=[\'"](.+?)[\'"]/i', $content, $links)) {
+        return $links[1][0];
+    }
+    return false;
+}
+
+function kar_get_embedded_medias($type = array(), $num = 1)
+{
+    $content = do_shortcode(apply_filters('the_content', get_the_content()));
+    $embed = get_media_embedded_in_content($content, $type);
+    $output = [];
+    if ($embed) {
+        for ($i = 0; $i < count($embed); $i++) {
+            if ($i < $num) {
+                if (in_array('audio', $type)) {
+                    $output[] = str_replace('?visual=true', '?visual=false', $embed[$i]);
+                } else {
+                    $output[] = $embed[$i];
+                }
+            }
+        }
+    }
+
+    return $output;
+}
+
+function kar_get_embedded_media($type = array())
+{
+    $medias = kar_get_embedded_medias($type, 1);
+    if (count($medias) > 0)
+        return $medias[0];
+    return null;
+}
+
+function kar_get_embedded_image_id()
+{
+    $ids = kar_get_image_attachment_ids(1);
+    if (count($ids) > 0)
+        return $ids[0];
+    return null;
+}
+
+function kar_get_embedded_image_ids($num = 1)
+{
+    $output = [];
+    if ($num > 0 && has_post_thumbnail()) {
+        $output[] = get_post_thumbnail_id(get_the_ID());
+        $num--;
+    }
+
+    if ($num > 0) {
+        $imageIds = kar_grab_img_ids();
+        if ($imageIds && count($imageIds) > 0) {
+            foreach ($imageIds as $imageId) {
+                if ($num > 0) {
+                    $output[] = $imageId;
+                    $num--;
+                }
+            }
+        }
+    }
+
+    return $output;
+}
+
+
+function kar_get_shortcode( $content, $type ) {
+    $regex = '/'.get_shortcode_regex( array('audio') ).'/';
+    if(preg_match_all( '/'. get_shortcode_regex( array('audio') ) .'/s', $content, $matches )) {
+        return $matches[0][0];
+    }
+    return null;
+}
+
+function kar_get_post_meta() {
+    $author = get_the_author();
+    $author_link = get_author_posts_url(get_the_author_meta('ID'));
+    $author_image = get_avatar(get_the_author_meta('ID'));
+    $post_link = esc_url(get_permalink());
+    $output = '<small class="post-meta text-muted">';
+    $output .= '<a class="date kar-link" href="'.$post_link.'">' . hs_time_ago() . '</a> ';
+    $output .= __('by'). ' <a class="author kar-link" href="'.$author_link.'">' . $author_image . ' '. $author . '</a>';
+    $output .= '</small>';
+    return $output;
+}
+
+
+function kar_get_post_statistic() {
+    $author = get_the_author();
+    $author_link = get_author_posts_url(get_the_author_meta('ID'));
+    $author_image = get_avatar(get_the_author_meta('ID'));
+    $post_link = esc_url(get_permalink());
+    $comments_link = esc_url(get_comments_link());
+    $output = '<small class="post-meta text-muted">';
+    $output .= '<a class="date kar-link" href="'.$post_link.'">'. __("Views", "kar"). ' ' . kar_get_post_views() . '</a> ';
+    $output .= '<a class="date kar-link" href="'.$comments_link.'">'. __("Comments", "kar"). ' ' . get_comments_number() . '</a> ';
+    $output .= '</small>';
+    return $output;
+}
+
+function kar_get_category_list() {
+    $categories = array_map(function ($category) {
+        return '<a class="category kar-link" href="' . esc_url(get_category_link($category->term_id)) . '" alt="' . $category->name . '">#' . esc_html($category->name) . '</a>';
+    }, get_the_category());
+    return '<small class="category-list">'.join(' &#183 ', $categories).'</small>';
+}
+
+
+function kar_get_taxonomies($name) {
+    $taxonomies = array_map(function ($category) {
+        return '<a class="kar-link" href="' . esc_url(get_category_link($category->term_id)) . '" alt="' . $category->name . '">' . esc_html($category->name) . '</a>';
+    }, wp_get_post_terms(get_the_ID(), $name, array( 'fields' => 'all' )));
+    return '<small class="">'.join(' ', $taxonomies).'</small>';
+}

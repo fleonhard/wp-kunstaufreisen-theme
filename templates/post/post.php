@@ -18,14 +18,30 @@
         <? endif; ?>
         <div class="col-12">
             <div class="card-body">
-                <a href="<?= get_the_permalink() ?>" class="text-primary"><h5
-                            class="card-title article-font"><?= get_the_title() ?></h5></a>
-                <p class="card-text article-font"><?= esc_html(get_the_excerpt()) ?></p>
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-0 mb-md-2">
+                        <a href="<?= get_the_permalink() ?>" class="kar-text-link"><h5 class="card-title article-font mb-0"><?= get_the_title() ?></h5></a>
+                    </div>
+                    <div class="col-12 text-left col-md-6 text-md-right mb-2">
+                        <?= kar_get_post_meta() ?>
+                    </div>
+                    <div class="col-12">
+                        <p class="card-text article-font"><?= get_the_excerpt() ?></p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-12 card-footer text-muted text-center">
-            <small class="text-muted"><?= hs_time_ago() ?></small>
-            <small class="text-muted"><?= kar_get_post_views() ?></small>
+        <div class="col-12">
+            <div class="card-footer py-1">
+                <div class="row">
+                    <div class="col-12 text-center col-md-6 text-md-left">
+                        <?= kar_get_category_list() ?>
+                    </div>
+                    <div class="col-12 text-center col-md-6 text-md-right">
+                        <?= kar_get_post_statistic() ?>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
