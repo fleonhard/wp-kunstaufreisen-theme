@@ -1,0 +1,20 @@
+/*!
+ * Copyright (c) 2019 Herborn Software
+ *
+ * @package kar
+ */
+
+
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+@import "core";
+
+.post-meta {
+  .avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+}

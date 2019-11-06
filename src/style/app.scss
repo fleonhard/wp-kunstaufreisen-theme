@@ -1,0 +1,37 @@
+/*!
+ * Copyright (c) 2019 Herborn Software
+ *
+ * @package kar
+ */
+
+// https://uxplanet.org/how-to-customize-bootstrap-b8078a011203
+/* import only the necessary Bootstrap files */
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+
+
+/* -------begin customization-------- */
+/* change the primary theme color to red */
+
+$theme-colors: (
+        primary: #5d5c5e,
+        secondary: #ff7e44
+);
+
+$enable-rounded: false;
+$enable-shadows: false;
+$enable-gradients: false;
+$enable-grid-classes: true;
+$enable-print-styles: true;
+
+
+/* -------end customization-------- */
+/* finally, import Bootstrap to set the changes! */
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+@import "main";
+@import "header";
+@import "footer";
+@import "post";
+@import "sidebar";
+@import "podcast";

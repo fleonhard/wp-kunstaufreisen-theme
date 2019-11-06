@@ -9,7 +9,7 @@
 add_theme_support('custom-header');
 add_theme_support('custom-background');
 add_theme_support('post-thumbnails');
-add_theme_support('post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat'));
+add_theme_support('post-formats', array(/*'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat'*/));
 add_theme_support('html5', array('audio', 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
 
 add_action('get_header', function ($name) {
@@ -252,9 +252,21 @@ function kar_get_post_statistic() {
 
 function kar_get_category_list() {
     $categories = array_map(function ($category) {
-        return '<a class="category kar-link" href="' . esc_url(get_category_link($category->term_id)) . '" alt="' . $category->name . '">#' . esc_html($category->name) . '</a>';
+        return '<a class="kar-link" href="' . esc_url(get_category_link($category->term_id)) . '" alt="' . $category->name . '">' . esc_html($category->name) . '</a>';
     }, get_the_category());
-    return '<small class="category-list">'.join(' &#183 ', $categories).'</small>';
+    return '<small class="">'.join(' &#183 ', $categories).'</small>';
+}
+
+
+function kar_get_tag_list() {
+    $tags = get_the_tags();
+    if($tags) {
+        $tags = array_map(function ($tag) {
+            return '<a class="kar-link" href="' . esc_url(get_tag_link($tag)) . '" alt="' . $tag->name . '">#' . esc_html($tag->name) . '</a>';
+        }, get_the_tags());
+        return '<small class="">'.join(' &#183 ', $tags).'</small>';
+    }
+    return null;
 }
 
 

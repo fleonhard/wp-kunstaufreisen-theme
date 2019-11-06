@@ -1,0 +1,58 @@
+/*!
+ * Copyright (c) 2019 Herborn Software
+ *
+ * @package kar
+ */
+
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+@import "core";
+
+header {
+  position: relative;
+  background-color: black;
+  height: 25vh;
+  min-height: 15rem;
+  width: 100%;
+  overflow: hidden;
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    @include support-transform(translateX(-50%) translateY(-50%));
+  }
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+  }
+
+  @include media-breakpoint-down('md') {
+    .site-title {
+      font-size: 32px;
+    }
+    .site-description {
+      font-size: 16px;
+    }
+  }
+}
+
+.header-index {
+  height: 75vh;
+}

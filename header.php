@@ -27,9 +27,9 @@ $sidebar_active = is_active_sidebar('main_sidebar');
 
 <main class="site-content container">
     <div class="row mt-4">
-<? if ($sidebar_active): ?>
-    <div class="d-none d-md-block col-md-4 mb-4">
-        <? get_template_part( 'sidebar', 'main_sidebar' );  ?>
-    </div>
-<? endif; ?>
-<div class="col-12 <?= $sidebar_active ? 'col-md-8' : '' ?>">
+        <? if ($sidebar_active): ?>
+            <div class="d-none d-md-block col-md-4 mb-4">
+                <? get_template_part( 'sidebar', 'main_sidebar' );  ?>
+            </div>
+        <? endif; ?>
+        <div class="col-12 <?= $sidebar_active ? 'col-md-8' : '' ?>">

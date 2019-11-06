@@ -1,0 +1,18 @@
+/*!
+ * Copyright (c) 2019 Herborn Software
+ *
+ * @package kar
+ */
+
+
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+@import "core";
+
+.page-footer {
+  background-color: black;
+  color: white;
+  padding: 20px;
+}

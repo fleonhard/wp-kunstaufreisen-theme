@@ -20,6 +20,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-12 col-md-6 mb-0 mb-md-2">
+                        <?= kar_get_category_list() ?>
                         <a href="<?= get_the_permalink() ?>" class="kar-text-link"><h5 class="card-title article-font mb-0"><?= get_the_title() ?></h5></a>
                     </div>
                     <div class="col-12 text-left col-md-6 text-md-right mb-2">
@@ -35,7 +36,7 @@
             <div class="card-footer py-1">
                 <div class="row">
                     <div class="col-12 text-center col-md-6 text-md-left">
-                        <?= kar_get_category_list() ?>
+                        <?= kar_get_tag_list() ?>
                     </div>
                     <div class="col-12 text-center col-md-6 text-md-right">
                         <?= kar_get_post_statistic() ?>

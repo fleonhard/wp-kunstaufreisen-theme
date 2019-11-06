@@ -1,0 +1,75 @@
+/*!
+ * Copyright (c) 2019 Herborn Software
+ *
+ * @package kar
+ */
+
+
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+@import "core";
+
+
+.kar-sidebar {
+
+  .kar-widget {
+    @extend .mb-4;
+
+    .kar-widget-title {
+      @extend .article-font;
+      @extend .text-center;
+      @extend .bg-dark;
+      @extend .text-white;
+      @extend .p-2;
+      @extend .mb-2;
+      @extend .d-block;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1em;
+      letter-spacing: 0.2px;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  a {
+    @extend .kar-link;
+  }
+
+  // Categories Widget
+  .cat-item {
+    @extend .d-flex;
+    @extend .p-2;
+
+    a {
+      @extend .w-100;
+      line-height: 1em;
+    }
+
+    span {
+      @extend .p-2;
+      @extend .flex-shrink-1;
+    }
+  }
+
+  // Comments Widget
+  .recentcomments {
+    @extend .mb-2;
+    @extend .p-2;
+    font-size: 12px;
+
+    span {
+      &, & a {
+        @extend .d-block;
+        font-size: 1rem;
+      }
+    }
+
+
+  }
+}
