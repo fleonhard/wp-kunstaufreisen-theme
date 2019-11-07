@@ -41,7 +41,7 @@ add_action('init', function () {
         * Parent and child items. A non-hierarchical CPT
         * is like Posts.
         */
-        'hierarchical' => true,
+        'hierarchical' => false,
         'public' => true,
         'show_ui' => true,
         'show_in_menu' => true,
