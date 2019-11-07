@@ -7,7 +7,7 @@
 $header_image = get_header_image();
 ?>
 
-<header>
+<header class="kar-header">
     <div class="overlay"></div>
     <img src="<?= $header_image?>">
     <div class="container h-100">

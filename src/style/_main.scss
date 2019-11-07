@@ -21,6 +21,7 @@
 
 body {
   @extend .default-font;
+  overflow-x: hidden;
 }
 
 
@@ -56,12 +57,14 @@ body {
     left: 50%;
     @include support-transition(all 320ms cubic-bezier(0,.5,0,1));
   }
+}
 
-  &:hover, &:focus {
-    &:after {
-      right: 0;
-      left: 0;
-    }
+li.active a.kar-link,
+.kar-link:hover,
+.kar-link:focus {
+  &:after {
+    right: 0;
+    left: 0;
   }
 }
 
@@ -91,3 +94,9 @@ body {
   }
 }
 
+.comment-edit-link,
+.comment-reply-link {
+  @extend .kar-link;
+  @extend .ml-1;
+  font-size: 12px;
+}

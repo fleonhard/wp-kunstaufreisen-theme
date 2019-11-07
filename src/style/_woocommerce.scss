@@ -1,0 +1,194 @@
+/*!
+ * Copyright (c) 2019 Herborn Software
+ *
+ * @package kar
+ */
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "core";
+
+.woocommerce-input-wrapper {
+  width: 100%;
+}
+
+// Woocommerce product gallery slider width fix
+figure.woocommerce-product-gallery__wrapper {
+  max-width: inherit !important;
+}
+
+// Fix coupon code input width
+@media(min-width: 768px) {
+  #coupon_code.input-text {
+    width: 110px !important;
+  }
+}
+
+
+.woocommerce {
+  @extend .row;
+  div.product {
+    .woocommerce-tabs {
+
+      ul.tabs li::before,
+      ul.tabs::before {
+        display: none;
+      }
+
+      ul.tabs li {
+        border: none;
+        background-color: transparent;
+        @extend %article-font;
+      }
+
+    }
+  }
+
+  span.onsale {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 5em;
+    min-width: 5em;
+    top: -1em;
+    left: -1em;
+    background-color: theme-color(secondary);
+    @include support-transform(rotate(-25deg));
+  }
+
+  .box {
+    width: 200px; height: 300px;
+    position: relative;
+    border: 1px solid #BBB;
+    background: #EEE;
+  }
+  .ribbon {
+    position: absolute;
+    left: -5px; top: -5px;
+    z-index: 1;
+    overflow: hidden;
+    width: 75px; height: 75px;
+    text-align: right;
+
+    span {
+      font-size: 10px;
+      font-weight: bold;
+      color: #FFF;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 20px;
+      @include support-transform(rotate(-45deg));
+      width: 100px;
+      display: block;
+      background: theme-color(secondary);
+      background: linear-gradient(theme-color(secondary) 0%, theme-color(secondary) 100%);
+      box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+      position: absolute;
+      top: 19px; left: -21px;
+
+      &:before,
+      &:after {
+        content: "";
+        z-index: -1;
+        border-bottom: 3px solid transparent;
+        border-top: 3px solid theme-color(secondary);
+        position: absolute;
+        top: 100%;
+      }
+
+      &:before {
+        left: 0;
+        border-left: 3px solid theme-color(secondary);
+        border-right: 3px solid transparent;
+      }
+
+      &:after {
+        right: 0;
+        border-left: 3px solid transparent;
+        border-right: 3px solid theme-color(secondary);
+      }
+
+    }
+
+  }
+
+  .uwa_winning {
+    all: unset;
+    font-size: 10px;
+    font-weight: bold;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 20px;
+    @include support-transform(rotate(-45deg));
+    width: 100px;
+    display: block;
+    background: theme-color(secondary);
+    background: linear-gradient(theme-color(secondary) 0%, theme-color(secondary) 100%);
+    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 19px; left: -21px;
+
+    &:before,
+    &:after {
+      all: unset;
+      content: "";
+      z-index: -1;
+      border-bottom: 3px solid transparent;
+      border-top: 3px solid theme-color(secondary);
+      position: absolute;
+      top: 100%;
+    }
+
+    &:before {
+      left: 0;
+      border-left: 3px solid theme-color(secondary);
+      border-right: 3px solid transparent;
+    }
+
+    &:after {
+      right: 0;
+      border-left: 3px solid transparent;
+      border-right: 3px solid theme-color(secondary);
+    }
+
+  }
+
+
+  //h1, h2, h3, h4, h5, h6 {
+  //  @extend %article-font;
+  //}
+  //.page-title {
+  //  @extend .text-center;
+  //}
+}
+
+  //  @extend .row;
+  //
+  //
+  //  h1, h2, h3, h4, h5, h6 {
+  //    @extend %article-font;
+  //  }
+  //
+  //  .page-title {
+  //    @extend .text-center;
+  //  }
+  //
+  //}
+  //
+  //.kar-login,
+  //.kar-register,
+  //.kar-address {
+  //  min-height: 100%;
+//}
+
+
+//.woocommerce form .form-row input .input-text,
+//.woocommerce form .form-row textarea {
+//  padding: .25rem;
+//  height: 30px;
+//  border: 1px solid #999999;
+//  background-color: #f0f0f0;
+//}

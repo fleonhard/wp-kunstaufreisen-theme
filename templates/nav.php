@@ -6,7 +6,7 @@
  */
 ?>
 
-<div id="wrapper-navbar" itemscope itemtype="http://schema.org/WebSite">
+<div id="wrapper-navbar" class="container" itemscope itemtype="http://schema.org/WebSite">
 
     <a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e('Skip to content', 'hs'); ?></a>
 

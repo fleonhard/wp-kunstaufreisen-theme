@@ -18,7 +18,7 @@ get_header("single"); ?>
         <div class="row">
             <? if (have_posts()): ?>
                 <? while (have_posts()): the_post(); ?>
-                    <? get_template_part('templates/'.get_post_type().'/single', get_post_format()); ?>
+                    <? get_template_part('templates/' . get_post_type() . '/single', get_post_format()); ?>
                 <? endwhile; ?>
             <? endif; ?>
         </div>

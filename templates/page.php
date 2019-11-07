@@ -7,6 +7,6 @@
 ?>
 
 
-<article class="col-12 article-font">
+<article class="col-12">
     <?php the_content(); ?>
 </article>
