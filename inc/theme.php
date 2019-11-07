@@ -15,7 +15,7 @@ add_theme_support('html5', array('audio', 'comment-list', 'comment-form', 'searc
 //Add to front page
 add_action('pre_get_posts', function (\WP_Query $query) {
     if (is_home() && $query->is_main_query())
-        $query->set('post_type', array('post', 'podcast', 'travel-step'));
+        $query->set('post_type', array('post', 'podcast', 'travel_step'));
     return $query;
 });
 
