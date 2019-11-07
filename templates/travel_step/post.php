@@ -5,6 +5,7 @@
  * @package kar
  */
 ?>
+<div class="col-12 mb-4">
 <div class="card">
     <div class="row no-gutters">
         <?php if (has_post_thumbnail()): ?>
@@ -60,4 +61,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

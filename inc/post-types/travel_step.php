@@ -25,7 +25,7 @@ add_action('init', function () {
         'not_found_in_trash' => __('Step Not found in Trash', 'kar'),
     );
 
-    register_post_type('travel-step', array(
+    register_post_type('travel_step', array(
         'label' => __('travel-step', 'kar'),
         'description' => __('A Step on your Tour', 'kar'),
         'labels' => $labels,
@@ -34,7 +34,7 @@ add_action('init', function () {
         'supports' => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments'),
         'show_in_rest' => true,
         // You can associate this CPT with a taxonomy or custom taxonomy.
-        'taxonomies' => array('travel-trip'),
+        'taxonomies' => array('travel_trip'),
         'rewrite' => array('slug' => 'travel-step'),
 
         /* A hierarchical CPT is like Pages and can have
@@ -61,7 +61,7 @@ add_action('init', function () {
 function travel_step_metabox()
 {
     add_meta_box(
-        'travel-step',           // Unique ID
+        'travel_step',           // Unique ID
         __('Travel Data', 'kar'),  // Box title
         'travel_step_metabox_html',  // Content callback, must be of type callable
         'travel-step',                   // Post type
@@ -134,7 +134,7 @@ add_action('init', function () {
         'menu_name' => _n('Trip', 'Trips', 2, 'kar'),
     );
 
-    register_taxonomy('travel-trip', 'travel-step', array(
+    register_taxonomy('travel_trip', 'travel_step', array(
         'hierarchical' => true,
         'show_in_rest' => true,
         'public' => true,
@@ -150,7 +150,7 @@ add_action('init', function () {
         'rewrite' => array('slug' => 'travel-trip'),
     ));
 
-    add_editor_for_taxonomy('travel-trip');
+    add_editor_for_taxonomy('travel_trip');
 
 });
 
