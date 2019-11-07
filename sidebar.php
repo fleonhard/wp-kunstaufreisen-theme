@@ -8,6 +8,6 @@
 
 <div class="card kar-sidebar">
     <aside id="secondary" class="widget-area row p-4" role="complementary">
-        <? dynamic_sidebar('main_sidebar'); ?>
+        <?php dynamic_sidebar('main_sidebar'); ?>
     </aside>
 </div>

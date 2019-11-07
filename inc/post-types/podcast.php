@@ -31,8 +31,8 @@ add_action('init', function () {
         'labels' => $labels,
 
         // Features this CPT supports in Post Editor
-        'supports' => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'custom-fields'),
-
+        'supports' => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments'),
+        'show_in_rest' => true,
         // You can associate this CPT with a taxonomy or custom taxonomy.
         'taxonomies' => array('series'),
         'rewrite' => array('slug' => 'podcasts'),
@@ -58,14 +58,6 @@ add_action('init', function () {
 });
 
 
-//Add to front page
-add_action('pre_get_posts', function (\WP_Query $query) {
-    if (is_home() && $query->is_main_query())
-        $query->set('post_type', array('post', 'podcast'));
-    return $query;
-});
-
-
 add_action('init', function () {
     $labels = array(
         'name' => __('Podcast Series', 'kar'),
@@ -82,6 +74,7 @@ add_action('init', function () {
 
     register_taxonomy('podcast_series', 'podcast', array(
         'hierarchical' => true,
+        'show_in_rest' => true,
         'public' => true,
         'show_ui' => true,
         'show_in_menu' => true,

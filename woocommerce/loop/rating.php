@@ -33,5 +33,5 @@ if ( ! wc_review_ratings_enabled() ) {
 
 ?>
 <div class="d-flex justify-content-center">
-<?= wc_get_rating_html( $product->get_average_rating() ); // WordPress.XSS.EscapeOutput.OutputNotEscaped. ?>
+<?php echo  wc_get_rating_html( $product->get_average_rating() ); // WordPress.XSS.EscapeOutput.OutputNotEscaped. ?>
 </div>

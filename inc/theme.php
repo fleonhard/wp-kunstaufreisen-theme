@@ -12,6 +12,14 @@ add_theme_support('post-thumbnails');
 add_theme_support('post-formats', array(/*'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat'*/));
 add_theme_support('html5', array('audio', 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
 
+//Add to front page
+add_action('pre_get_posts', function (\WP_Query $query) {
+    if (is_home() && $query->is_main_query())
+        $query->set('post_type', array('post', 'podcast', 'travel-step'));
+    return $query;
+});
+
+
 add_action('get_header', function ($name) {
     add_filter('current_header', function () use ($name) {
         return (string)$name;
@@ -217,11 +225,22 @@ function kar_get_embedded_image_ids($num = 1)
 
 
 function kar_get_shortcode( $content, $type ) {
-    $regex = '/'.get_shortcode_regex( array('audio') ).'/';
-    if(preg_match_all( '/'. get_shortcode_regex( array('audio') ) .'/s', $content, $matches )) {
+    $regex = '/'.get_shortcode_regex( array($type) ).'/';
+    if(preg_match_all( '/'. get_shortcode_regex( array($type) ) .'/s', $content, $matches )) {
         return $matches[0][0];
     }
     return null;
+}
+
+function kar_get_audio_as_shortcode($content) {
+    $shortcode = kar_get_shortcode($content, 'audio');
+    if(!$shortcode) {
+        $src = kar_get_embedded_audio_src();
+        if($src) {
+            $shortcode = '[audio src="'.$src.'"]';
+        }
+    }
+    return $shortcode;
 }
 
 function kar_get_post_meta() {
@@ -244,8 +263,9 @@ function kar_get_post_statistic() {
     $post_link = esc_url(get_permalink());
     $comments_link = esc_url(get_comments_link());
     $output = '<small class="post-meta text-muted">';
-    $output .= '<a class="date kar-link" href="'.$post_link.'">'. __("Views", "kar"). ' ' . kar_get_post_views() . '</a> ';
-    $output .= '<a class="date kar-link" href="'.$comments_link.'">'. __("Comments", "kar"). ' ' . get_comments_number() . '</a> ';
+//    $output .= '<a class="date kar-link" href="'.$post_link.'">'. __("Views", "kar"). ' ' . kar_get_post_views() . '</a> ';
+    $output .= '<a class="date kar-link" href="'.$post_link.'"><span class="hs-icon hs-watched"></span> ' . kar_get_post_views() . '</a> ';
+    $output .= '<a class="date kar-link" href="'.$comments_link.'"><span class="hs-icon hs-comment ml-2"></span> ' . get_comments_number() . '</a> ';
     $output .= '</small>';
     return $output;
 }
@@ -262,9 +282,9 @@ function kar_get_tag_list() {
     $tags = get_the_tags();
     if($tags) {
         $tags = array_map(function ($tag) {
-            return '<a class="kar-link" href="' . esc_url(get_tag_link($tag)) . '" alt="' . $tag->name . '">#' . esc_html($tag->name) . '</a>';
+            return '<a class="kar-link" href="' . esc_url(get_tag_link($tag)) . '" alt="' . $tag->name . '">' . esc_html($tag->name) . '</a>';
         }, get_the_tags());
-        return '<small class="">'.join(' &#183 ', $tags).'</small>';
+        return '<small class=""><span class="hs-icon hs-tag mr-1"></span>'.join(' &#183 ', $tags).'</small>';
     }
     return null;
 }

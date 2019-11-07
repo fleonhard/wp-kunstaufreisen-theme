@@ -48,5 +48,5 @@
         <?php endif; ?>
     <?php endif; ?>
 
-    <? comment_form(); ?>
+    <?php comment_form(); ?>
 </div>

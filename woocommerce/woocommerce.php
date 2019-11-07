@@ -10,6 +10,6 @@
 
 get_header("page"); ?>
 
-<? woocommerce_content(); ?>
+<?php woocommerce_content(); ?>
 
-<? get_footer("page");
+<?php get_footer("page");

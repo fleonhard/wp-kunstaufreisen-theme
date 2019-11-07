@@ -4,7 +4,6 @@
  *
  * @package kar
  */
-kar_increase_post_views()
 ?>
 
 

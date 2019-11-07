@@ -9,30 +9,30 @@ get_header("archive"); ?>
 
     <div class="row mb-4">
         <div class="col-12 text-center">
-            <h1 class="article-font"><?= get_the_archive_title() ?></h1>
+            <h1 class="article-font"><?php echo  get_the_archive_title() ?></h1>
         </div>
     </div>
     <div class="row mb-4">
         <div class="col-12 text-center">
-            <div class="article-font"><? the_archive_description() ?></div>
+            <div class="article-font"><?php the_archive_description() ?></div>
         </div>
     </div>
 
     <div class="row">
-        <? if (have_posts()): ?>
-            <? while (have_posts()): the_post(); ?>
+        <?php if (have_posts()): ?>
+            <?php while (have_posts()): the_post(); ?>
                 <div class="col-12 mb-4">
-                    <? get_template_part('templates/' . get_post_type() . '/post', get_post_format()); ?>
+                    <?php get_template_part('templates/' . get_post_type() . '/post', get_post_format()); ?>
                 </div>
-            <? endwhile; ?>
-        <? endif; ?>
+            <?php endwhile; ?>
+        <?php endif; ?>
     </div>
 
     <div class="mt-4 row">
         <div class="col-12">
-            <? kar_get_pagination(); ?>
+            <?php kar_get_pagination(); ?>
         </div>
     </div>
 
 
-<? get_footer("archive");
+<?php get_footer("archive");
