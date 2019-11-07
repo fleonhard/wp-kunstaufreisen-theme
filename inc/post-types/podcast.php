@@ -27,7 +27,7 @@ add_action('init', function () {
 
     register_post_type('podcast', array(
         'label' => __('podcasts', 'kar'),
-        'description' => __('Podcasts with Description and Audio', 'kar'),
+        'description' => '',
         'labels' => $labels,
 
         // Features this CPT supports in Post Editor

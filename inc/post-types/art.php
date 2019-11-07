@@ -27,7 +27,7 @@ add_action('init', function () {
 
     register_post_type('art', array(
         'label' => __('arts', 'kar'),
-        'description' => __('Arts', 'kar'),
+        'description' => '',
         'labels' => $labels,
 
         // Features this CPT supports in Post Editor

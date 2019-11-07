@@ -5,7 +5,7 @@
  * @package kar
  */
 ?>
-<div class="col-4 mb-4">
+<div class="col-12 mb-4 col-md-6 col-lg-4">
     <div class="card post-card">
         <div class="row no-gutters">
             <?php if (has_post_thumbnail()): ?>
@@ -20,7 +20,7 @@
             <div class="col-12">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-12 col-md-6 mb-0 mb-md-2">
+                        <div class="col-12 mb-2">
                             <?php echo kar_get_category_list() ?>
                             <a href="<?php echo get_the_permalink() ?>" class="kar-text-link"><h5
                                         class="card-title article-font mb-0"><?php echo get_the_title() ?></h5></a>

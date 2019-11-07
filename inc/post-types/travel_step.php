@@ -27,7 +27,7 @@ add_action('init', function () {
 
     register_post_type('travel_step', array(
         'label' => __('travel-step', 'kar'),
-        'description' => __('A Step on your Tour', 'kar'),
+        'description' => '',
         'labels' => $labels,
 
         // Features this CPT supports in Post Editor
@@ -64,7 +64,7 @@ function travel_step_metabox()
         'travel_step',           // Unique ID
         __('Travel Data', 'kar'),  // Box title
         'travel_step_metabox_html',  // Content callback, must be of type callable
-        'travel-step',                   // Post type
+        'travel_step',                   // Post type
         'advanced',
         'high'
     );
