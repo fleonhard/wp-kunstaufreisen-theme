@@ -4,8 +4,8 @@
  *
  * @package kar
  */
-get_header("index"); ?>
 
+get_header("index"); ?>
     <div class="row">
         <?php if (have_posts()): ?>
             <?php while (have_posts()): the_post(); ?>
