@@ -6,12 +6,7 @@
  */
 
 
-require get_template_directory() . '/inc/enqueue.php';
-require get_template_directory() . '/inc/bootstrap-navwalker.php';
-require get_template_directory() . '/inc/bootstrap-commentwalker.php';
-require get_template_directory() . '/inc/post-types/podcast.php';
-require get_template_directory() . '/inc/post-types/travel_step.php';
-require get_template_directory() . '/inc/post-types/art.php';
-require get_template_directory() . '/inc/woocommerce.php';
-require get_template_directory() . '/inc/widgets/post-views.php';
-require get_template_directory() . '/inc/theme.php';
+require get_template_directory() . '/inc/helper.php';
+require get_template_directory() . '/inc/kar_theme.php';
+
+$theme = KAR_Theme::install();

@@ -44,7 +44,7 @@
                     'fallback_cb' => '',
                     'menu_id' => 'main-menu',
                     'depth' => 2,
-                    'walker' => new Bootstrap_Navwalker(),
+                    'walker' => new KAR_Walker_Nav_Menu(),
                 )
             ); ?>
         </div>

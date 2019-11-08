@@ -8,7 +8,6 @@
 
 get_header("page"); ?>
 
-
         <div class="row mb-4">
             <div class="col-12 text-center">
                 <h1 class="article-font"><?php the_title() ?></h1>

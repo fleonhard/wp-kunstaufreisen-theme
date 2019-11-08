@@ -27,7 +27,7 @@
                 'max_depth'     => 4,
                 'short_ping'    => true,
                 'avatar_size'   => '50',
-                'walker'        => new Bootstrap_Comment_Walker(),
+                'walker' => new KAR_Walker_Comment(),
                 'callback' => null,
                 'end-callback' => null,
                 'type' => 'all',
