@@ -213,11 +213,12 @@ function kar_get_post_statistic() {
     $author = get_the_author();
     $author_link = get_author_posts_url(get_the_author_meta('ID'));
     $author_image = get_avatar(get_the_author_meta('ID'));
+    global $kar_theme;
     $post_link = esc_url(get_permalink());
     $comments_link = esc_url(get_comments_link());
     $output = '<small class="post-meta text-muted">';
 //    $output .= '<a class="date kar-link" href="'.$post_link.'">'. __("Views", "kar"). ' ' . kar_get_post_views() . '</a> ';
-    $output .= '<a class="date kar-link" href="'.$post_link.'"><span class="hs-icon hs-watched"></span> ' . kar_get_post_views() . '</a> ';
+    $output .= '<a class="date kar-link" href="' . $post_link . '"><span class="hs-icon hs-watched"></span> ' . $kar_theme->get_post_views() . '</a> ';
     $output .= '<a class="date kar-link" href="'.$comments_link.'"><span class="hs-icon hs-comment ml-2"></span> ' . get_comments_number() . '</a> ';
     $output .= '</small>';
     return $output;

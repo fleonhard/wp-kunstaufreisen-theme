@@ -8,17 +8,17 @@
 require get_template_directory() . '/inc/kar_woocommerce.php';
 require get_template_directory() . '/inc/kar_walker_nav_menu.php';
 require get_template_directory() . '/inc/kar_walker_comment.php';
-require get_template_directory() . '/inc/post-types/podcast.php';
+require get_template_directory() . '/inc/post-types/KARPodcastPlugin.php';
 require get_template_directory() . '/inc/post-types/travel_step.php';
+//require get_template_directory() . '/inc/post-types/kar_test_post_type.php';
 require get_template_directory() . '/inc/post-types/art.php';
-require get_template_directory() . '/inc/widgets/post-views.php';
 
 defined('ABSPATH') || exit;
 
 if (!class_exists('KAR_Theme')) {
     final class KAR_Theme
     {
-
+        private static $POST_VIEW_META = 'kar_post_views';
         private $theme;
 
         public static function install()
@@ -48,11 +48,49 @@ if (!class_exists('KAR_Theme')) {
             add_action('after_setup_theme', array($this, 'register_navs'));
             add_action('after_setup_theme', array($this, 'register_sidebars'));
             add_action('after_setup_theme', array($this, 'register_plugin_support'));
+
+            remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10);
+
+            add_action('kar_increase_post_views', array($this, 'increase_post_views'));
+
+            add_action('kar_get_template', array($this, 'get_template'));
+        }
+
+        function get_template($template, $post = false)
+        {
+            if (!$post) {
+                global $post;
+            }
+            if (get_post_type($post) != 'post') {
+                get_template_part('templates/' . $template, get_post_type($post));
+            } else {
+                get_template_part('templates/' . $template, get_post_format($post));
+            }
+        }
+
+        function get_post_views($post_id = false)
+        {
+            if (!$post_id) {
+                $post_id = get_the_ID();
+            }
+            $views = get_post_meta($post_id, self::$POST_VIEW_META, true);
+            return empty($views) ? 0 : $views;
+        }
+
+
+        function increase_post_views($post_id = false)
+        {
+            if (!$post_id) {
+                $post_id = get_the_ID();
+            }
+            update_post_meta($post_id, self::$POST_VIEW_META, $this->get_post_views($post_id) + 1);
         }
 
         function register_plugin_support()
         {
             KAR_Woocommerce::install();
+            KARPodcastPlugin::init();
+            //KAR_Test_Post_Type::install();
         }
 
         function register_lang()
@@ -90,14 +128,18 @@ if (!class_exists('KAR_Theme')) {
 
         function add_admin_scripts()
         {
-            wp_enqueue_script('app', get_template_directory_uri() . '/public/js/admin.js', array(), $this->theme->get('Version'), true);
             wp_enqueue_style('app', get_template_directory_uri() . '/public/css/admin.css', array(), $this->theme->get('Version'), 'all');
+            wp_enqueue_script('app', get_template_directory_uri() . '/public/js/admin.js', array(), $this->theme->get('Version'), true);
+            wp_localize_script('app', 'kar_data', array(
+                'frame_title' => __('Upload Audio File', 'kar'),
+                'button_text' => __('Use this File', 'kar')
+            ));
         }
 
         function register_query_post_types(\WP_Query $query)
         {
             if (is_home() && $query->is_main_query()) {
-                $query->set('post_type', array('post', 'podcast', 'travel-step'));
+                $query->set('post_type', array('post', 'podcast', 'podcast_episode', 'travel-step'));
             }
             return $query;
         }
