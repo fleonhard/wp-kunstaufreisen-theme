@@ -84,11 +84,19 @@ function registerTripDetail() {
         return (((elementRight - buffer) <= containerRight) && ((elementLeft + buffer) >= containerLeft));
     }
 
+    // function scrollToMilestone(id) {
+    //     const container = $('#milestone_container');
+    //     const target = $('#milestone-meta-' + id);
+    //     const offset = container.scrollLeft() + (target.offset().left - container.offset().left);
+    //     container.stop().animate({'scrollLeft': offset}, 900, 'swing');
+    // }
+
     function scrollToMilestone(id) {
-        const container = $('#milestone_container');
+        const mapHeight = $('#milestone_map').height();
+        const padding = 40;
+        console.log(padding);
         const target = $('#milestone-meta-' + id);
-        const offset = container.scrollLeft() + (target.offset().left - container.offset().left);
-        container.stop().animate({'scrollLeft': offset}, 900, 'swing');
+        $('html, body').animate({ scrollTop: $(target).offset().top - mapHeight - padding}, 900, 'swing');
     }
 
     function featureToMarker(feature) {
@@ -99,7 +107,6 @@ function registerTripDetail() {
 
         el.addEventListener('click', function (e) {
             e.preventDefault();
-            console.log("Scroll to " + feature.properties.id);
             scrollToMilestone(feature.properties.id);
         }.bind(feature));
         return el;
@@ -112,7 +119,7 @@ function registerTripDetail() {
         $('#marker-' + milestone_id).addClass('active');
         map.flyTo({
             center: [lat, lon],
-            zoom: 11,
+            zoom: 12,
             bearing: 0,
             speed: 1.5, // make the flying slow
             curve: 2, // change the speed at which it zooms out
@@ -183,6 +190,15 @@ function registerTripDetail() {
         }, labelLayerId);
     }
 
+    $.fn.isInViewport = function() {
+        const mapHeight = $('#milestone_map').height();
+        const elementTop = $(this).offset().top;
+        const elementBottom = elementTop + $(this).outerHeight();
+        const viewportTop = $(window).scrollTop() + mapHeight;
+        const viewportBottom = viewportTop + $(window).height();
+        return elementBottom > viewportTop && elementTop < viewportBottom;
+    };
+
     $('#milestones', function () {
 
         const milestonesWrapper = $(this);
@@ -220,27 +236,28 @@ function registerTripDetail() {
             addBuildingLayer(map);
         });
 
-        // const adminHeight =  $('#wpadminbar').length ? $('#wpadminbar').height() : 0;
-        // $(window).on('scroll', function () {
-        //     const scrollTop = $(document).scrollTop();
-        //     $('.milestone-map-container').each(function () {
-        //         const container = $(this);
-        //         if (container.offset().top < scrollTop + adminHeight) {
-        //             const map = $(container.find('#milestone_map'));
-        //             map.addClass('map-fixed');
-        //             map.width(container.width());
-        //             map.height(container.height());
-        //         } else {
-        //             container.find('#milestone_map').removeClass('map-fixed');
-        //         }
-        //     });
-        // });
-
+        const adminHeight = $('#wpadminbar').length ? $('#wpadminbar').height() : 0;
         let last = null;
-        milestoneContainer.on('scroll', function () {
-            const metas = $(this).find('.milestone-meta').toArray();
+
+        $(window).on('scroll', function () {
+            const scrollTop = $(document).scrollTop();
+            $('.milestone-map-container').each(function () {
+                const container = $(this);
+                if (container.offset().top < scrollTop + adminHeight) {
+                    const map = $(container.find('#milestone_map'));
+                    map.addClass('map-fixed');
+                    map.width(container.width());
+                    //map.height(container.height());
+                } else {
+                    container.find('#milestone_map').removeClass('map-fixed');
+                }
+            });
+        });
+
+        $(window).on('scroll', function () {
+            const metas = $('.milestone-meta').toArray();
             for (let meta of metas) {
-                if (isMilestoneVisible(meta, milestoneContainer)) {
+                if ($(meta).isInViewport()) {
                     if (last === meta) return;
                     last = meta;
                     const metaEl = $(meta);
@@ -250,9 +267,28 @@ function registerTripDetail() {
                     setActiveMarker(milestoneId, lat, lon, map);
                     update_url_milestone(milestoneId);
                     return;
+
                 }
             }
         });
+
+        // milestoneContainer.on('scroll', function () {
+        //     const metas = $(this).find('.milestone-meta').toArray();
+        //     for (let meta of metas) {
+        //         if (isMilestoneVisible(meta, milestoneContainer)) {
+        //             if (last === meta) return;
+        //             last = meta;
+        //             const metaEl = $(meta);
+        //             const milestoneId = metaEl.data('id');
+        //             const lat = metaEl.data('locationLat');
+        //             const lon = metaEl.data('locationLon');
+        //             setActiveMarker(milestoneId, lat, lon, map);
+        //             update_url_milestone(milestoneId);
+        //             return;
+        //         }
+        //     }
+        // });
+
 
         milestonesWrapper.find('#show_all_btn').on('click', function (e) {
             e.preventDefault();
