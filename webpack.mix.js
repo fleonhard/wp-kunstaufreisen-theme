@@ -21,5 +21,6 @@ const mix = require('laravel-mix');
 mix.options({processCssUrls: false})
     .js('src/app.js', 'public/js')
     .js('src/admin.js', 'public/js')
+    .js('src/trip.js', 'public/js')
     .sass('src/style/app.scss', 'public/css')
     .sass('src/style/admin.scss', 'public/css');

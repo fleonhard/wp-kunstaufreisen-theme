@@ -9,7 +9,7 @@ require('jquery');
 jQuery(document).ready(function ($) {
 
     'use strict';
-    const form = $('#podcast_episode_meta_box_content');
+    const form = $('#episode_settings');
 
 
     function getDuration(src, cb) {

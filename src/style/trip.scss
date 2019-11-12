@@ -1,0 +1,62 @@
+/*!
+ * @author Florian Herborn
+ * @copyright 2019 Herborn Software
+ * @license GPL-2.0-or-later
+ *
+ * @package kar
+ */
+@import "../../node_modules/mapbox-gl/dist/mapbox-gl.css";
+@import "../../node_modules/@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+
+#milestone_settings {
+
+  #map {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+#milestone_map {
+  width: 100%;
+  height: 40vh;
+
+  .marker {
+    display: block;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    padding: 0;
+    border: 2px solid theme-color(secondary);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &.active {
+      box-shadow: 0 0 10px darken(theme-color(secondary), .5);
+      transform: scale(2);
+    }
+  }
+
+  #show_all_btn {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    top: 15px;
+  }
+}
+
+#milestones {
+
+  .milestone-card {
+    height: 100%;
+  }
+
+  #milestone_container {
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+}

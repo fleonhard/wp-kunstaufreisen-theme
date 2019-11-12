@@ -8,8 +8,9 @@
 require get_template_directory() . '/inc/kar_woocommerce.php';
 require get_template_directory() . '/inc/kar_walker_nav_menu.php';
 require get_template_directory() . '/inc/kar_walker_comment.php';
-require get_template_directory() . '/inc/post-types/KARPodcastPlugin.php';
-require get_template_directory() . '/inc/post-types/travel_step.php';
+require get_template_directory() . '/inc/post-types/KAR_Podcast_Plugin.php';
+require get_template_directory() . '/inc/post-types/KAR_Travel_Plugin.php';
+//require get_template_directory() . '/inc/post-types/travel_step.php';
 //require get_template_directory() . '/inc/post-types/kar_test_post_type.php';
 require get_template_directory() . '/inc/post-types/art.php';
 
@@ -20,6 +21,7 @@ if (!class_exists('KAR_Theme')) {
     {
         private static $POST_VIEW_META = 'kar_post_views';
         private $theme;
+        private $DOMAIN = "kar";
 
         public static function install()
         {
@@ -54,7 +56,27 @@ if (!class_exists('KAR_Theme')) {
             add_action('kar_increase_post_views', array($this, 'increase_post_views'));
 
             add_action('kar_get_template', array($this, 'get_template'));
+
+            add_action('admin_menu', array($this, 'add_admin_menu'));
+
         }
+
+        function add_admin_menu()
+        {
+            add_options_page(__("Theme Settings"), __("Theme Settings"), 'manage_options', 'theme-settings', array($this, 'render_options_page'));
+        }
+
+
+        function render_options_page()
+        {
+            echo '<form action="options.php" method="post">';
+            echo '<h2>' . __("Theme Settings") . '</h2>';
+            settings_fields('kar_settings');
+            do_settings_sections('kar_settings');
+            submit_button();
+            echo '</form>';
+        }
+
 
         function get_template($template, $post = false)
         {
@@ -89,7 +111,8 @@ if (!class_exists('KAR_Theme')) {
         function register_plugin_support()
         {
             KAR_Woocommerce::install();
-            KARPodcastPlugin::init();
+            KAR_Podcast_Plugin::init();
+            KAR_Travel_Plugin::init();
             //KAR_Test_Post_Type::install();
         }
 
@@ -139,7 +162,7 @@ if (!class_exists('KAR_Theme')) {
         function register_query_post_types(\WP_Query $query)
         {
             if (is_home() && $query->is_main_query()) {
-                $query->set('post_type', array('post', 'podcast', 'podcast_episode', 'travel-step'));
+                $query->set('post_type', array('post', 'podcast', 'podcast_episode', 'travel_tour', 'travel_step'));
             }
             return $query;
         }
