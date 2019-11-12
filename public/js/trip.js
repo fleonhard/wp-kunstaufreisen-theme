@@ -7308,6 +7308,7 @@
             var rsingleTag = (/^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i);
 
 
+
 // Implement the identical functionality for filter and not
             function winnow(elements, qualifier, not) {
                 if (isFunction(qualifier)) {
@@ -7688,6 +7689,7 @@
                 };
             });
             var rnothtmlwhite = (/[^\x20\t\r\n\f]+/g);
+
 
 
 // Convert String-formatted options into Object-formatted ones
@@ -8328,6 +8330,8 @@
             };
 
 
+
+
 // The deferred used on DOM ready
             var readyList = jQuery.Deferred();
 
@@ -8403,6 +8407,8 @@
                 // A fallback to window.onload, that will always work
                 window.addEventListener("load", completed);
             }
+
+
 
 
 // Multifunctional method to get and set values of a collection
@@ -8648,6 +8654,7 @@
             var dataPriv = new Data();
 
             var dataUser = new Data();
+
 
 
 //	Implementation Summary
@@ -9184,6 +9191,7 @@
             var rtagName = (/<([a-z][^\/\0>\x20\t\r\n\f]*)/i);
 
             var rscriptType = (/^$|^module$|\/(?:java|ecma)script/i);
+
 
 
 // We have to close these tags to support XHTML (#13200)
@@ -12826,6 +12834,8 @@
             });
 
 
+
+
 // Return jQuery for attributes-only inclusion
 
 
@@ -13063,6 +13073,7 @@
             var nonce = Date.now();
 
             var rquery = (/\?/);
+
 
 
 // Cross-browser xml parsing
@@ -14311,6 +14322,8 @@
             });
 
 
+
+
 // Prevent auto-execution of scripts when no explicit dataType was provided (See gh-2432)
             jQuery.ajaxPrefilter(function (s) {
                 if (s.crossDomain) {
@@ -14470,6 +14483,8 @@
             });
 
 
+
+
 // Support: Safari 8 only
 // In Safari 8 documents created via document.implementation.createHTMLDocument
 // collapse sibling forms: the second one becomes a child of the first one.
@@ -14595,6 +14610,8 @@
 
                 return this;
             };
+
+
 
 
 // Attach a bunch of functions for handling common AJAX events
@@ -14981,6 +14998,8 @@
                     // subtraction forces infinities to NaN
                     !isNaN(obj - parseFloat(obj));
             };
+
+
 
 
 // Register as a named AMD module, since jQuery can be concatenated with other
@@ -34774,17 +34793,22 @@
             }
 
             function isMilestoneVisible(elem, container) {
-                var containerLeft = container.scrollLeft();
+                var containerLeft = container.offset().left;
                 var containerRight = containerLeft + container.width();
-                var elementLeft = $(elem).offset().left + 20;
-                var elementRight = elementLeft + $(elem).width() - 20;
-                return elementRight <= containerRight && elementLeft >= containerLeft;
+                var elementLeft = $(elem).offset().left;
+                var elementRight = elementLeft + $(elem).width();
+                var buffer = 20;
+                console.log("C Left " + containerLeft);
+                console.log("E Left " + (elementLeft + buffer));
+                console.log("C Right " + containerRight);
+                console.log("E Right " + (elementRight - buffer));
+                return elementRight - buffer <= containerRight && elementLeft + buffer >= containerLeft;
             }
 
             function scrollToMilestone(id) {
                 var container = $('#milestone_container');
                 var target = $('#milestone-meta-' + id);
-                var offset = target.offset().left - container.offset().left;
+                var offset = container.scrollLeft() + (target.offset().left - container.offset().left);
                 container.stop().animate({
                     'scrollLeft': offset
                 }, 900, 'swing');
@@ -34797,6 +34821,7 @@
                 el.style.backgroundImage = 'url("' + feature.properties.img + '")';
                 el.addEventListener('click', function (e) {
                     e.preventDefault();
+                    console.log("Scroll to " + feature.properties.id);
                     scrollToMilestone(feature.properties.id);
                 }.bind(feature));
                 return el;
@@ -34892,17 +34917,26 @@
                 map.fitBounds(bounds, {
                     padding: 50
                 });
-                milestonesWrapper.find('#show_all_btn').on('click', function (e) {
-                    e.preventDefault();
-                    map.fitBounds(bounds, {
-                        padding: 50
-                    });
-                });
                 map.on('load', function () {
                     addRouteLayer(map, lineCoords, markerColor);
                     addBuildingLayer(map);
-                });
-                var lastMilestone = null;
+                }); // const adminHeight =  $('#wpadminbar').length ? $('#wpadminbar').height() : 0;
+                // $(window).on('scroll', function () {
+                //     const scrollTop = $(document).scrollTop();
+                //     $('.milestone-map-container').each(function () {
+                //         const container = $(this);
+                //         if (container.offset().top < scrollTop + adminHeight) {
+                //             const map = $(container.find('#milestone_map'));
+                //             map.addClass('map-fixed');
+                //             map.width(container.width());
+                //             map.height(container.height());
+                //         } else {
+                //             container.find('#milestone_map').removeClass('map-fixed');
+                //         }
+                //     });
+                // });
+
+                var last = null;
                 milestoneContainer.on('scroll', function () {
                     var metas = $(this).find('.milestone-meta').toArray();
                     var _iteratorNormalCompletion = true;
@@ -34914,10 +34948,10 @@
                             var meta = _step.value;
 
                             if (isMilestoneVisible(meta, milestoneContainer)) {
+                                if (last === meta) return;
+                                last = meta;
                                 var metaEl = $(meta);
                                 var milestoneId = metaEl.data('id');
-                                if (lastMilestone === milestoneId) return;
-                                lastMilestone = milestoneId;
                                 var lat = metaEl.data('locationLat');
                                 var lon = metaEl.data('locationLon');
                                 setActiveMarker(milestoneId, lat, lon, map);
@@ -34939,6 +34973,13 @@
                             }
                         }
                     }
+                });
+                milestonesWrapper.find('#show_all_btn').on('click', function (e) {
+                    e.preventDefault();
+                    last = null;
+                    map.fitBounds(bounds, {
+                        padding: 50
+                    });
                 });
                 var query_milestone = getQueryMilestoneId();
 

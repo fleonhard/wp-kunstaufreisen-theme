@@ -18,7 +18,7 @@
         </div>
     <?php endwhile; ?>
 <?php endif; ?>
-<div class="col-12 mb-4">
+<div class="col-12 mb-4 milestone-map-container">
     <div id="milestone_map">
         <button id="show_all_btn" class="btn btn-primary"><?php _e('Show All', 'kar') ?></button>
     </div>

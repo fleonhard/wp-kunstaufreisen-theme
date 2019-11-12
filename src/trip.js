@@ -74,19 +74,20 @@ function registerTripDetail() {
     }
 
     function isMilestoneVisible(elem, container) {
-        const containerLeft = container.scrollLeft();
+        const containerLeft = container.offset().left;
         const containerRight = containerLeft + container.width();
 
-        const elementLeft = $(elem).offset().left + 20;
-        const elementRight = elementLeft + $(elem).width() - 20;
+        const elementLeft = $(elem).offset().left;
+        const elementRight = elementLeft + $(elem).width();
 
-        return ((elementRight <= containerRight) && (elementLeft >= containerLeft));
+        const buffer = 20;
+        return (((elementRight - buffer) <= containerRight) && ((elementLeft + buffer) >= containerLeft));
     }
 
     function scrollToMilestone(id) {
         const container = $('#milestone_container');
         const target = $('#milestone-meta-' + id);
-        const offset = (target.offset().left - container.offset().left);
+        const offset = container.scrollLeft() + (target.offset().left - container.offset().left);
         container.stop().animate({'scrollLeft': offset}, 900, 'swing');
     }
 
@@ -98,6 +99,7 @@ function registerTripDetail() {
 
         el.addEventListener('click', function (e) {
             e.preventDefault();
+            console.log("Scroll to " + feature.properties.id);
             scrollToMilestone(feature.properties.id);
         }.bind(feature));
         return el;
@@ -213,25 +215,36 @@ function registerTripDetail() {
 
         map.fitBounds(bounds, {padding: 50});
 
-        milestonesWrapper.find('#show_all_btn').on('click', function (e) {
-            e.preventDefault();
-            map.fitBounds(bounds, {padding: 50});
-        });
-
         map.on('load', function () {
             addRouteLayer(map, lineCoords, markerColor);
             addBuildingLayer(map);
         });
 
-        let lastMilestone = null;
+        // const adminHeight =  $('#wpadminbar').length ? $('#wpadminbar').height() : 0;
+        // $(window).on('scroll', function () {
+        //     const scrollTop = $(document).scrollTop();
+        //     $('.milestone-map-container').each(function () {
+        //         const container = $(this);
+        //         if (container.offset().top < scrollTop + adminHeight) {
+        //             const map = $(container.find('#milestone_map'));
+        //             map.addClass('map-fixed');
+        //             map.width(container.width());
+        //             map.height(container.height());
+        //         } else {
+        //             container.find('#milestone_map').removeClass('map-fixed');
+        //         }
+        //     });
+        // });
+
+        let last = null;
         milestoneContainer.on('scroll', function () {
             const metas = $(this).find('.milestone-meta').toArray();
             for (let meta of metas) {
                 if (isMilestoneVisible(meta, milestoneContainer)) {
+                    if (last === meta) return;
+                    last = meta;
                     const metaEl = $(meta);
                     const milestoneId = metaEl.data('id');
-                    if (lastMilestone === milestoneId) return;
-                    lastMilestone = milestoneId;
                     const lat = metaEl.data('locationLat');
                     const lon = metaEl.data('locationLon');
                     setActiveMarker(milestoneId, lat, lon, map);
@@ -240,6 +253,13 @@ function registerTripDetail() {
                 }
             }
         });
+
+        milestonesWrapper.find('#show_all_btn').on('click', function (e) {
+            e.preventDefault();
+            last = null;
+            map.fitBounds(bounds, {padding: 50});
+        });
+
 
         const query_milestone = getQueryMilestoneId();
         if (query_milestone) {
