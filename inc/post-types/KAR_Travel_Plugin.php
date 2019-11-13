@@ -145,7 +145,7 @@ if (!class_exists('KAR_Travel_Plugin')) {
             register_post_type($this->MILESTONE_TYPE, array(
                 'label' => __('Milestones', $this->DOMAIN),
                 'labels' => $this->get_post_type_labels('Milestone', 'Milestones'),
-                'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'author', 'comments'),
+                'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'author'),
                 'show_in_rest' => true,
                 'hierarchical' => false,
                 'public' => true,
