@@ -27,13 +27,11 @@
 }
 
 #milestone_map {
-
-  @include support-transition(all 320ms);
-
   &.map-fixed {
     position: fixed;
-    top: 24px;
     z-index: 10;
+    top: 40px;
+    border: 1px solid grey;
   }
 
   .marker {

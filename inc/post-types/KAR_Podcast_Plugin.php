@@ -65,6 +65,7 @@ if (!class_exists('KAR_Podcast_Plugin')) {
                 'menu_icon' => 'dashicons-microphone',
                 'public' => true,
             ));
+            flush_rewrite_rules();
         }
 
         function create_meta_boxes()

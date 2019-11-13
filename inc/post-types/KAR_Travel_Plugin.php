@@ -46,7 +46,19 @@ if (!class_exists('KAR_Travel_Plugin')) {
             add_filter('kar_get_milestone_day', array($this, 'get_milestone_day'));
             add_filter('kar_get_trip_milestones', array($this, 'get_trip_milestones'));
             add_filter('kar_get_milestone_location', array($this, 'get_milestone_location'));
+            add_filter('kar_get_milestone_trip_name', array($this, 'get_milestone_trip_name'));
+            add_filter('kar_get_milestone_link', array($this, 'get_milestone_link'));
             $this->create_meta_boxes();
+        }
+
+        function get_milestone_link($milestone_id)
+        {
+            return get_the_permalink(get_post_meta($milestone_id, $this->MILESTONE_TRIP_META, true)) . '?milestone=' . $milestone_id;
+        }
+
+        function get_milestone_trip_name($milestone_id)
+        {
+            return get_the_title(get_post_meta($milestone_id, $this->MILESTONE_TRIP_META, true));
         }
 
         function get_milestone_location($milestone_id)
@@ -76,7 +88,7 @@ if (!class_exists('KAR_Travel_Plugin')) {
                 data-location-lat="' . get_post_meta(get_the_ID(), $this->MILESTONE_LOCATION_LAT_META, true) . '" 
                 data-location-lon="' . get_post_meta(get_the_ID(), $this->MILESTONE_LOCATION_LON_META, true) . '" 
                 data-location-name="' . get_post_meta(get_the_ID(), $this->MILESTONE_LOCATION_NAME_META, true) . '" 
-                style="width: 100%;"></div>';
+                style="width: 100%; height: 100%; position: absolute;  left: 0; right: 0; top: 0; bottom: 0;"></div>';
         }
 
         function get_trip_milestones($trip_id)
@@ -137,6 +149,7 @@ if (!class_exists('KAR_Travel_Plugin')) {
                 'menu_icon' => 'dashicons-admin-site-alt',//'dashicons-palmtree',
                 'public' => true,
             ));
+            flush_rewrite_rules();
         }
 
         function create_meta_boxes()

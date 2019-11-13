@@ -16166,12 +16166,13 @@ function registerTripDetail() {
 
 
   function scrollToMilestone(id) {
-    var mapHeight = $('#milestone_map').height();
-    var padding = 40;
-    console.log(padding);
+      var map = $('#milestone_map');
+      var mapBottom = map.height() + 40; // + map.offset().top ;
+
+      var margin = 40;
     var target = $('#milestone-meta-' + id);
     $('html, body').animate({
-      scrollTop: $(target).offset().top - mapHeight - padding
+        scrollTop: $(target).offset().top - mapBottom - margin
     }, 900, 'swing');
   }
 
@@ -16261,10 +16262,12 @@ function registerTripDetail() {
 
   $.fn.isInViewport = function () {
     var mapHeight = $('#milestone_map').height();
+      var margin = 40;
+      var buffer = 10;
     var elementTop = $(this).offset().top;
     var elementBottom = elementTop + $(this).outerHeight();
-    var viewportTop = $(window).scrollTop() + mapHeight;
-    var viewportBottom = viewportTop + $(window).height();
+      var viewportTop = $(window).scrollTop() + mapHeight + margin + buffer;
+      var viewportBottom = viewportTop + $(window).height() - buffer;
     return elementBottom > viewportTop && elementTop < viewportBottom;
   };
 
@@ -16290,25 +16293,22 @@ function registerTripDetail() {
       addRouteLayer(map, lineCoords, markerColor);
       addBuildingLayer(map);
     });
-    var adminHeight = $('#wpadminbar').length ? $('#wpadminbar').height() : 0;
-    var last = null;
     $(window).on('scroll', function () {
       var scrollTop = $(document).scrollTop();
       $('.milestone-map-container').each(function () {
         var container = $(this);
+          var margin = 40;
+          var map = $(container.find('#milestone_map'));
 
-        if (container.offset().top < scrollTop + adminHeight) {
-          var _map = $(container.find('#milestone_map'));
-
-          _map.addClass('map-fixed');
-
-          _map.width(container.width()); //map.height(container.height());
-
+          if (container.offset().top < scrollTop + margin) {
+              map.addClass('map-fixed');
+              map.width(container.width()); //map.height(container.height());
         } else {
-          container.find('#milestone_map').removeClass('map-fixed');
+              map.removeClass('map-fixed');
         }
       });
     });
+      var last = null;
     $(window).on('scroll', function () {
       var metas = $('.milestone-meta').toArray();
       var _iteratorNormalCompletion = true;

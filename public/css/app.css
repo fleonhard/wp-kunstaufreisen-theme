@@ -11316,14 +11316,11 @@ figure.woocommerce-product-gallery__wrapper {
   height: 30vh;
 }
 
-#milestone_map {
-  -webkit-transition: all 320ms;
-  transition: all 320ms;
-}
 #milestone_map.map-fixed {
   position: fixed;
-  top: 24px;
   z-index: 10;
+  top: 40px;
+  border: 1px solid grey;
 }
 #milestone_map .marker {
   display: block;

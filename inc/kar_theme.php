@@ -162,7 +162,7 @@ if (!class_exists('KAR_Theme')) {
         function register_query_post_types(\WP_Query $query)
         {
             if (is_home() && $query->is_main_query()) {
-                $query->set('post_type', array('post', 'podcast', 'podcast_episode', 'travel_tour', 'travel_step'));
+                $query->set('post_type', array('post', 'podcast', 'podcast_episode', 'travel_trip', 'travel_milestone'));
             }
             return $query;
         }

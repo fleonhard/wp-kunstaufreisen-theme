@@ -30,7 +30,7 @@
         if ($milestones->have_posts()) {
             while ($milestones->have_posts()) {
                 $milestones->the_post();
-                echo '<div class="col-12 mb-4">';
+                echo '<div class="col-12" style="margin-bottom: 40px">';
                 do_action('kar_add_milestone_meta');
                 do_action('kar_get_template', 'list');
                 echo '</div>';
