@@ -7,6 +7,7 @@
  */
 
 const $ = require('jquery');
+require('bootstrap');
 require('mapbox-gl');
 require('@mapbox/mapbox-gl-geocoder');
 
@@ -45,6 +46,7 @@ function registerTripDetail() {
                             "elementId": meta.attr('id'),
                             "img": meta.data('img'),
                             "date": meta.data('date'),
+                            "day": meta.data('day'),
                             'locationName': meta.data('location-name')
                         },
                         "geometry": {
@@ -105,6 +107,11 @@ function registerTripDetail() {
         el.id = 'marker-' + feature.properties.id;
         el.style.backgroundImage = 'url("' + feature.properties.img + '")';
 
+        const day = document.createElement('div');
+        day.className = 'marker-day';
+        day.append(feature.properties.day);
+
+        el.appendChild(day);
         el.addEventListener('click', function (e) {
             e.preventDefault();
             scrollToMilestone(feature.properties.id);

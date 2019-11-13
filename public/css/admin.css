@@ -11011,10 +11011,25 @@ li.active a.comment-reply-link:after,
   background-repeat: no-repeat;
   background-size: cover;
 }
-#milestone_map .marker.active {
-  box-shadow: 0 0 10px #ff7c41;
-  -webkit-transform: scale(2);
-          transform: scale(2);
+#milestone_map .marker.active,
+#milestone_map .marker.active .marker-day {
+  border: 2px solid deeppink;
+  box-shadow: 0 0 10px deeppink;
+}
+#milestone_map .marker .marker-day {
+  position: absolute;
+  padding: 1px 8px;
+  bottom: -10px;
+  font-size: 10px;
+  left: 50%;
+  right: 50%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border-radius: 50vh;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-color: #ff7e44;
 }
 #milestone_map #show_all_btn {
   position: absolute;

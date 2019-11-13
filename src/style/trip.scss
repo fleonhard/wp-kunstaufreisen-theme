@@ -46,8 +46,24 @@
     background-size: cover;
 
     &.active {
-      box-shadow: 0 0 10px darken(theme-color(secondary), .5);
-      transform: scale(2);
+      &,
+      .marker-day {
+        border: 2px solid deeppink;
+        box-shadow: 0 0 10px deeppink;
+      }
+    }
+
+    .marker-day {
+      position: absolute;
+      padding: 1px 8px;
+      bottom: -10px;
+      font-size: 10px;
+      left: 50%;
+      right: 50%;
+      width: max-content;
+      border-radius: 50vh;
+      transform: translateX(-50%);
+      background-color: theme-color(secondary);
     }
   }
 
