@@ -11420,3 +11420,23 @@ figure.woocommerce-product-gallery__wrapper {
   overflow-x: scroll;
   overflow-y: hidden;
 }
+
+/*!
+ * @author Florian Herborn
+ * @copyright 2019 Herborn Software
+ * @license GPL-2.0-or-later
+ *
+ * @package kar
+ */
+/*!
+ * Copyright (c) 2019 Herborn Software
+ *
+ * @package kar
+ */
+.article-font, .kar-sidebar .kar-widget .kar-widget-title, .woocommerce div.product .woocommerce-tabs ul.tabs li {
+    font-family: Noto Serif, "Playfair Display", serif;
+}
+
+.default-font, body {
+    font-family: "Raleway", "Open Sans", sans-serif;
+}
