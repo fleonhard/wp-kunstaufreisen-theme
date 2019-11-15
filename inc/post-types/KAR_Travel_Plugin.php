@@ -51,6 +51,7 @@ if (!class_exists('KAR_Travel_Plugin')) {
 
             add_action('wp_ajax_ajax_increase_post_view', array($this, 'ajax_increase_post_view'));
 
+
             $this->create_meta_boxes();
         }
 
@@ -95,7 +96,7 @@ if (!class_exists('KAR_Travel_Plugin')) {
                 id="milestone-meta-' . get_the_ID() . '"
                 class="milestone-meta"
                 data-id="' . get_the_ID() . '" 
-                data-img="' . get_the_post_thumbnail_url() . '" 
+                data-img="' . get_the_post_thumbnail_url(get_the_ID(), 'thumbnail-s') . '" 
                 data-day="' . __("Day", 'kar') . ' ' . $this->get_milestone_day(get_the_ID()) . '" 
                 data-date="' . get_post_meta(get_the_ID(), $this->MILESTONE_DATE_META, true) . '" 
                 data-location-lat="' . get_post_meta(get_the_ID(), $this->MILESTONE_LOCATION_LAT_META, true) . '" 

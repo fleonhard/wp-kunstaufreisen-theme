@@ -38,6 +38,9 @@ if (!class_exists('KAR_Theme')) {
             add_theme_support('post-formats', array(/*'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat'*/));
             add_theme_support('html5', array('audio', 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
 
+            add_image_size('thumbnail-s', 100, 100);
+            add_image_size('thumbnail-m', 500, 500);
+            add_image_size('thumbnail-l', 1000, 1000);
 
             add_action('wp_enqueue_scripts', array($this, 'add_frontend_scripts'));
             add_action('admin_enqueue_scripts', array($this, 'add_admin_scripts'));
