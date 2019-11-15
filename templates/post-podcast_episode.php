@@ -33,8 +33,10 @@ $parent = get_post(get_post_meta(get_the_ID(), 'kar_episode_podcast', true));
                 <div class="card-body pb-0">
                     <div class="row">
                         <div class="col-12 col-md-6 mb-0 mb-md-2">
-                            <small><?php echo get_the_title(get_post_meta(get_the_ID(), 'kar_episode_podcast', true)) ?>
-                                &#183;</small>
+                            <?php $podcast = get_post_meta(get_the_ID(), 'kar_episode_podcast', true); ?>
+                            <a class="kar-link"
+                               href="<?php echo get_the_permalink($podcast) ?>"><small><?php echo get_the_title($podcast) ?>
+                                    &#183;</small></a>
                             <small><?php _e('Episode', 'kar') ?><?php echo get_post_meta(get_the_ID(), 'kar_episode_number', true) ?></small>
                             <a href="<?php echo get_the_permalink() ?>" class="kar-text-link">
                                 <h5 class="card-title article-font mb-0">

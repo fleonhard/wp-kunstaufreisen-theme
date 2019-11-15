@@ -46,7 +46,7 @@
     <div class="list-group">
         <?php
 
-        $the_query = apply_filters('kar_get_podcast_episodes');
+        $the_query = apply_filters('kar_get_podcast_episodes', get_the_ID());
         if ($the_query->have_posts()) {
             while ($the_query->have_posts()) {
                 $the_query->the_post();

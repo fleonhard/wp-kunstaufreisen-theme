@@ -58,7 +58,12 @@ if (!class_exists('KAR_Theme')) {
             add_action('kar_get_template', array($this, 'get_template'));
 
             add_action('admin_menu', array($this, 'add_admin_menu'));
+            add_filter('excerpt_more', array($this, 'create_excerpt_more'));
+        }
 
+        function create_excerpt_more($more)
+        {
+            return ' ...';
         }
 
         function add_admin_menu()

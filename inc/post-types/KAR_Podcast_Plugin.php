@@ -44,7 +44,7 @@ if (!class_exists('KAR_Podcast_Plugin')) {
 
         }
 
-        function get_podcast_episodes()
+        function get_podcast_episodes($episode)
         {
             return new WP_Query(array(
                 'posts_per_page' => -1,
@@ -52,10 +52,10 @@ if (!class_exists('KAR_Podcast_Plugin')) {
                 'post_type' => 'podcast_episode',
                 'meta_key' => 'kar_episode_number',
                 'order' => 'ASC',
-                'orderby' => 'meta_value_num',
+                'orderby' => 'meta_value kar_episode_number',
                 'meta_query' => array(
                     'key' => 'kar_episode_podcast',
-                    'value' => get_the_ID()
+                    'value' => $episode
                 )
             ));
         }
