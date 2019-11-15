@@ -27,12 +27,24 @@
 
 <div class="container-fluid">
     <div class="row">
-        <?php if (is_active_sidebar('sidebar_left')): ?>
-            <aside id="secondary" class="col-12 py-4 col-xl-3 kar-sidebar kar-sidebar-left" role="complementary">
-                <div class="widget-area row px-xl-4">
-                    <?php dynamic_sidebar('sidebar_left'); ?>
+        <?php if (is_active_sidebar('desktop_left')): ?>
+            <aside id="secondary" class="d-none d-xl-block py-4 col-3 kar-sidebar kar-sidebar-left" role="complementary">
+                <div class="widget-area row px-4">
+                    <?php dynamic_sidebar('desktop_left'); ?>
                 </div>
             </aside>
         <?php endif; ?>
 
-        <main class="col-12 py-4 site-content col-xl-6 <?php echo is_active_sidebar('sidebar_right') ? '' : 'offset-xl-3' ?>">
+        <main class="col-12 py-4 site-content col-xl-6 <?php echo is_active_sidebar('desktop_left') ? '' : 'offset-xl-3' ?>">
+
+        <?php if (is_active_sidebar('mobile_top')): ?>
+                <aside class="d-xl-none widget-area row kar-sidebar pb-4" role="complementary">
+                    <?php dynamic_sidebar('mobile_top'); ?>
+                </aside>
+        <?php endif; ?>
+
+        <?php if (is_active_sidebar('desktop_top')): ?>
+                <aside class="d-none d-xl-block widget-area row kar-sidebar pb-4" role="complementary">
+                    <?php dynamic_sidebar('desktop_top'); ?>
+                </aside>
+        <?php endif; ?>

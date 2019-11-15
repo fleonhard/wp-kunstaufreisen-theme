@@ -131,31 +131,29 @@ if (!class_exists('KAR_Theme')) {
             register_nav_menu('primary', 'Header Navigation Menu');
         }
 
-        function register_sidebars()
+        private function register_sidebar($id, $name, $description)
         {
             register_sidebar(
                 array(
-                    'name' => __('Sidebar Left', 'kar'),
-                    'id' => 'sidebar_left',
-                    'description' => __('Sidebar on the left side', 'kar'),
+                    'name' => $name,
+                    'id' => $id,
+                    'description' => $description,
                     'before_widget' => '<section id="%1$s" class="kar-widget col-12 %2$s">',
                     'after_widget' => '</section>',
                     'before_title' => '<h2 class="kar-widget-title">',
                     'after_title' => '</h2>'
                 )
             );
+        }
 
-            register_sidebar(
-                array(
-                    'name' => __('Sidebar Right', 'kar'),
-                    'id' => 'sidebar_right',
-                    'description' => __('Sidebar on the right side', 'kar'),
-                    'before_widget' => '<section id="%1$s" class="kar-widget col-12 %2$s">',
-                    'after_widget' => '</section>',
-                    'before_title' => '<h2 class="kar-widget-title">',
-                    'after_title' => '</h2>'
-                )
-            );
+        function register_sidebars()
+        {
+            $this->register_sidebar('desktop_left', __('Sidebar Desktop Left', 'kar'), __('Sidebar is only displayed on Desktop on the left side', 'kar'));
+            $this->register_sidebar('desktop_right', __('Sidebar Desktop Right', 'kar'), __('Sidebar is only displayed on Desktop on the right side', 'kar'));
+            $this->register_sidebar('desktop_top', __('Sidebar Desktop Top', 'kar'), __('Sidebar is only displayed on Desktop on top', 'kar'));
+            $this->register_sidebar('desktop_bottom', __('Sidebar Desktop Bottom', 'kar'), __('Sidebar is only displayed on Desktop on bottom', 'kar'));
+            $this->register_sidebar('mobile_top', __('Sidebar Mobile Top', 'kar'), __('Sidebar is only displayed on Mobile on the top', 'kar'));
+            $this->register_sidebar('mobile_bottom', __('Sidebar Mobile Bottom', 'kar'), __('Sidebar is only displayed on Mobile on the bottom', 'kar'));
         }
 
         function add_frontend_scripts()
