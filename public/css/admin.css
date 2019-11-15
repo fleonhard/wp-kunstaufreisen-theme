@@ -10994,11 +10994,13 @@ li.active a.comment-reply-link:after,
   height: 30vh;
 }
 
+#milestone_map {
+    border: 1px solid grey;
+}
 #milestone_map.map-fixed {
   position: fixed;
   z-index: 10;
-  top: 40px;
-  border: 1px solid grey;
+    top: 0;
 }
 #milestone_map .marker {
   display: block;
@@ -11010,6 +11012,10 @@ li.active a.comment-reply-link:after,
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+#milestone_map .marker.active {
+    z-index: 12;
 }
 #milestone_map .marker.active,
 #milestone_map .marker.active .marker-day {

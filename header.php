@@ -4,7 +4,6 @@
  *
  * @package kar
  */
-$sidebar_active = is_active_sidebar('main_sidebar');
 ?>
 
 <!DOCTYPE html>
@@ -25,12 +24,3 @@ $sidebar_active = is_active_sidebar('main_sidebar');
 
 <?php get_template_part('templates/nav', apply_filters('current_header', '')); ?>
 <?php get_template_part('templates/header', apply_filters('current_header', '')); ?>
-
-<main class="site-content container py-4">
-    <div class="row">
-        <?php if ($sidebar_active): ?>
-            <div class="d-none d-lg-block col-lg-4">
-                <?php get_template_part( 'sidebar', 'main_sidebar' );  ?>
-            </div>
-        <?php endif; ?>
-        <div class="col-12 <?php echo  $sidebar_active ? 'col-lg-8' : '' ?>">

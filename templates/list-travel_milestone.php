@@ -34,8 +34,8 @@
         </div>
     </div>
 
-    <div class="d-flex w-100 card-footer justify-content-end">
-        <?php echo kar_get_post_statistic() ?>
-    </div>
+    <!--    <div class="d-flex w-100 card-footer justify-content-end">-->
+    <!--        --><?php //echo kar_get_post_statistic() ?>
+    <!--    </div>-->
 
 </div>

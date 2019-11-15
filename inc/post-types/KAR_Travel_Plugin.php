@@ -96,7 +96,7 @@ if (!class_exists('KAR_Travel_Plugin')) {
                 class="milestone-meta"
                 data-id="' . get_the_ID() . '" 
                 data-img="' . get_the_post_thumbnail_url() . '" 
-                data-day="' . __("Day", 'kar') . $this->get_milestone_day(get_the_ID()) . '" 
+                data-day="' . __("Day", 'kar') . ' ' . $this->get_milestone_day(get_the_ID()) . '" 
                 data-date="' . get_post_meta(get_the_ID(), $this->MILESTONE_DATE_META, true) . '" 
                 data-location-lat="' . get_post_meta(get_the_ID(), $this->MILESTONE_LOCATION_LAT_META, true) . '" 
                 data-location-lon="' . get_post_meta(get_the_ID(), $this->MILESTONE_LOCATION_LON_META, true) . '" 
@@ -111,7 +111,7 @@ if (!class_exists('KAR_Travel_Plugin')) {
                 'post_type' => $this->MILESTONE_TYPE,
                 'meta_key' => $this->MILESTONE_DATE_META,
                 'order' => 'ASC',
-                'orderby' => 'meta_value_num',
+                'orderby' => 'meta_value ' . $this->MILESTONE_DATE_META,
                 'meta_query' => array(
                     'key' => $this->MILESTONE_TRIP_META,
                     'value' => $trip_id

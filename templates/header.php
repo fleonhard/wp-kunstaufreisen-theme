@@ -19,3 +19,7 @@ $header_image = get_header_image();
         </div>
     </div>
 </header>
+
+<main class="site-content container py-4">
+    <div class="row">
+        <div class="col-12">

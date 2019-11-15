@@ -5,18 +5,29 @@
  * @package kar
  */
 
-    $header_image = get_header_image();
+$header_image = get_header_image();
+$sidebar_active = is_active_sidebar('main_sidebar');
 ?>
 
 <header class="kar-header header-index">
     <div class="overlay"></div>
-    <img src="<?php echo  $header_image?>">
+    <img src="<?php echo $header_image ?>">
     <div class="container h-100">
         <div class="d-flex h-100 text-center align-items-center">
             <div class="w-100 text-white">
-                <h1 class="display-3 site-title article-font"><?php echo  get_bloginfo('name') ?></h1>
-                <p class="lead site-description mb-0"><?php echo  get_bloginfo('description') ?></p>
+                <h1 class="display-3 site-title article-font"><?php echo get_bloginfo('name') ?></h1>
+                <p class="lead site-description mb-0"><?php echo get_bloginfo('description') ?></p>
             </div>
         </div>
     </div>
 </header>
+
+
+<main class="site-content container py-4">
+    <div class="row">
+        <?php if ($sidebar_active): ?>
+            <div class="d-none d-lg-block col-lg-4">
+                <?php get_template_part('sidebar', 'main_sidebar'); ?>
+            </div>
+        <?php endif; ?>
+        <div class="col-12 <?php echo $sidebar_active ? 'col-lg-8' : '' ?>">

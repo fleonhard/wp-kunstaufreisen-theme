@@ -4,6 +4,7 @@
  *
  * @package kar
  */
+$sidebar_active = is_active_sidebar('main_sidebar');
 ?>
 
 
@@ -16,3 +17,5 @@
         </div>
     </div>
 </footer>
+</div>
+</main>
