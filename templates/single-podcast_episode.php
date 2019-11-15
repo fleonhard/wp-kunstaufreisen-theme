@@ -14,7 +14,6 @@
             <small><?php echo gmdate("H:i:s", get_post_meta(get_the_ID(), 'kar_episode_audio_duration', true)) ?></small>
         </div>
         <h1 class="article-font"><?php the_title() ?></h1>
-        <?php echo do_shortcode('[audio src="' . get_post_meta(get_the_ID(), 'kar_episode_audio', true) . '"]') ?>
     </div>
 <?php if (have_posts()): ?>
     <?php while (have_posts()): the_post(); ?>
@@ -23,3 +22,6 @@
         </div>
     <?php endwhile; ?>
 <?php endif; ?>
+<div class="col-12">
+    <?php echo do_shortcode('[audio src="' . get_post_meta(get_the_ID(), 'kar_episode_audio', true) . '"]') ?>
+</div>
