@@ -130,9 +130,21 @@ if (!class_exists('KAR_Theme')) {
         {
             register_sidebar(
                 array(
-                    'name' => __('Main Sidebar', 'kar'),
-                    'id' => 'main_sidebar',
-                    'description' => __('Sidebar on Main Page', 'kar'),
+                    'name' => __('Sidebar Left', 'kar'),
+                    'id' => 'sidebar_left',
+                    'description' => __('Sidebar on the left side', 'kar'),
+                    'before_widget' => '<section id="%1$s" class="kar-widget col-12 %2$s">',
+                    'after_widget' => '</section>',
+                    'before_title' => '<h2 class="kar-widget-title">',
+                    'after_title' => '</h2>'
+                )
+            );
+
+            register_sidebar(
+                array(
+                    'name' => __('Sidebar Right', 'kar'),
+                    'id' => 'sidebar_right',
+                    'description' => __('Sidebar on the right side', 'kar'),
                     'before_widget' => '<section id="%1$s" class="kar-widget col-12 %2$s">',
                     'after_widget' => '</section>',
                     'before_title' => '<h2 class="kar-widget-title">',
