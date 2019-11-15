@@ -108,6 +108,7 @@ if (!class_exists('KAR_Travel_Plugin')) {
         {
             return new WP_Query(array(
                 'posts_per_page' => -1,
+                'post_status' => 'publish',
                 'post_type' => $this->MILESTONE_TYPE,
                 'meta_key' => $this->MILESTONE_DATE_META,
                 'order' => 'ASC',

@@ -46,17 +46,7 @@
     <div class="list-group">
         <?php
 
-        $the_query = new WP_Query(array(
-            'posts_per_page' => -1,
-            'post_type' => 'podcast_episode',
-            'meta_key' => 'kar_episode_number',
-            'order' => 'ASC',
-            'orderby' => 'meta_value_num',
-            'meta_query' => array(
-                'key' => 'kar_episode_podcast',
-                'value' => get_the_ID()
-            )
-        ));
+        $the_query = apply_filters('kar_get_podcast_episodes');
         if ($the_query->have_posts()) {
             while ($the_query->have_posts()) {
                 $the_query->the_post();

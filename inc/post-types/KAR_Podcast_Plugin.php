@@ -38,9 +38,26 @@ if (!class_exists('KAR_Podcast_Plugin')) {
             add_filter('kar_get_episode_count', array($this, 'get_episode_count'));
             add_filter('kar_get_podcast_duration', array($this, 'get_podcast_duration'));
 
+            add_filter('kar_get_podcast_episodes', array($this, 'get_podcast_episodes'));
 
             $this->create_meta_boxes();
 
+        }
+
+        function get_podcast_episodes()
+        {
+            return new WP_Query(array(
+                'posts_per_page' => -1,
+                'post_status' => 'publish',
+                'post_type' => 'podcast_episode',
+                'meta_key' => 'kar_episode_number',
+                'order' => 'ASC',
+                'orderby' => 'meta_value_num',
+                'meta_query' => array(
+                    'key' => 'kar_episode_podcast',
+                    'value' => get_the_ID()
+                )
+            ));
         }
 
         function register_post_types()
