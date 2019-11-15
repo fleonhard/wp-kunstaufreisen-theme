@@ -46,21 +46,23 @@ function kar_get_pagination($pages = '', $range = 2)
 //        echo '<li class="page-item disabled hidden-md-down d-none d-lg-block"><span class="page-link text-primary">Page '.$paged.' of '.$pages.'</span></li>';
 
         if ($paged > 2 && $paged > $range + 1 && $showitems < $pages)
-            echo '<li class="page-item"><a class="page-link btn btn-primary" href="' . get_pagenum_link(1) . '" aria-label="First Page">&laquo;<span class="hidden-sm-down d-none d-md-block"> First</span></a></li>';
+            echo '<li class="page-item"><a class="btn btn-outline-primary" href="' . get_pagenum_link(1) . '" aria-label="First Page">&laquo;<span class="sr-only"> First</span></a></li>';
 
         if ($paged > 1 && $showitems < $pages)
-            echo '<li class="page-item"><a class="page-link btn btn-primary" href="' . get_pagenum_link($paged - 1) . '" aria-label="Previous Page">&lsaquo;<span class="hidden-sm-down d-none d-md-block"> Previous</span></a></li>';
+            echo '<li class="page-item"><a class="btn btn-outline-primary" href="' . get_pagenum_link($paged - 1) . '" aria-label="Previous Page">&lsaquo;<span class="sr-only"> Previous</span></a></li>';
 
         for ($i = 1; $i <= $pages; $i++) {
             if (1 != $pages && (!($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems))
-                echo ($paged == $i) ? '<li class="page-item active"><span class="btn btn-outline-primary"><span class="sr-only">Current Page </span>' . $i . '</span></li>' : '<li class="page-item"><a class=" btn btn-primary" href="' . get_pagenum_link($i) . '"><span class="sr-only">Page </span>' . $i . '</a></li>';
+                echo ($paged == $i)
+                    ? '<li class="page-item active"><span class="btn btn-primary"><span class="sr-only">Current Page </span>' . $i . '</span></li>'
+                    : '<li class="page-item"><a class=" btn btn-outline-primary" href="' . get_pagenum_link($i) . '"><span class="sr-only">Page </span>' . $i . '</a></li>';
         }
 
         if ($paged < $pages && $showitems < $pages)
-            echo '<li class="page-item"><a class="btn btn-primary" href="' . get_pagenum_link($paged + 1) . '" aria-label="Next Page"><span class="hidden-sm-down d-none d-md-block">Next </span>&rsaquo;</a></li>';
+            echo '<li class="page-item"><a class="btn btn-outline-primary" href="' . get_pagenum_link($paged + 1) . '" aria-label="Next Page"><span class="sr-only">Next </span>&rsaquo;</a></li>';
 
         if ($paged < $pages - 1 && $paged + $range - 1 < $pages && $showitems < $pages)
-            echo '<li class="page-item"><a class="btn btn-primary" href="' . get_pagenum_link($pages) . '" aria-label="Last Page"><span class="hidden-sm-down d-none d-md-block">Last </span>&raquo;</a></li>';
+            echo '<li class="page-item"><a class="btn btn-outline-primary" href="' . get_pagenum_link($pages) . '" aria-label="Last Page"><span class="sr-only">Last </span>&raquo;</a></li>';
 
         echo '</ul>';
         echo '</nav>';
