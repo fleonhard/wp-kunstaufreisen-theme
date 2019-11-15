@@ -3,28 +3,6 @@
  *
  *  @package kar
  */
-@import "../../node_modules/bootstrap/scss/functions";
-@import "../../node_modules/bootstrap/scss/variables";
-
-
-/* -------begin customization-------- */
-/* change the primary theme color to red */
-
-$theme-colors: (
-        primary: #5d5c5e,
-        secondary: #ff7e44
-);
-
-$enable-rounded: false;
-$enable-shadows: false;
-$enable-gradients: false;
-$enable-grid-classes: true;
-$enable-print-styles: true;
-
-
-/* -------end customization-------- */
-/* finally, import Bootstrap to set the changes! */
-@import "../../node_modules/bootstrap/scss/bootstrap";
 
 .kar-meta-box {
   th {
@@ -41,6 +19,5 @@ input.large-text {
   width: 100%;
 }
 
-@import "main";
-@import "icons/style";
-@import "trip";
+
+@import "trip-admin";

@@ -2790,7 +2790,7 @@ pre code {
   border: 0;
 }
 
-.form-control {
+.form-control, .kar-sidebar .widget_search .search-form label input[type=search] {
   display: block;
   width: 100%;
   height: calc(1.5em + 0.75rem + 2px);
@@ -2807,43 +2807,51 @@ pre code {
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
-  .form-control {
+    .form-control, .kar-sidebar .widget_search .search-form label input[type=search] {
     -webkit-transition: none;
     transition: none;
   }
 }
-.form-control::-ms-expand {
+
+.form-control::-ms-expand, .kar-sidebar .widget_search .search-form label input[type=search]::-ms-expand {
   background-color: transparent;
   border: 0;
 }
-.form-control:focus {
+
+.form-control:focus, .kar-sidebar .widget_search .search-form label input[type=search]:focus {
   color: #495057;
   background-color: #fff;
   border-color: #80bdff;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
-.form-control::-webkit-input-placeholder {
+
+.form-control::-webkit-input-placeholder, .kar-sidebar .widget_search .search-form label input[type=search]::-webkit-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }
-.form-control::-moz-placeholder {
+
+.form-control::-moz-placeholder, .kar-sidebar .widget_search .search-form label input[type=search]::-moz-placeholder {
   color: #6c757d;
   opacity: 1;
 }
-.form-control:-ms-input-placeholder {
+
+.form-control:-ms-input-placeholder, .kar-sidebar .widget_search .search-form label input[type=search]:-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }
-.form-control::-ms-input-placeholder {
+
+.form-control::-ms-input-placeholder, .kar-sidebar .widget_search .search-form label input[type=search]::-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }
-.form-control::placeholder {
+
+.form-control::placeholder, .kar-sidebar .widget_search .search-form label input[type=search]::placeholder {
   color: #6c757d;
   opacity: 1;
 }
-.form-control:disabled, .form-control[readonly] {
+
+.form-control:disabled, .kar-sidebar .widget_search .search-form label input[type=search]:disabled, .form-control[readonly], .kar-sidebar .widget_search .search-form label input[readonly][type=search] {
   background-color: #e9ecef;
   opacity: 1;
 }
@@ -2920,7 +2928,7 @@ textarea.form-control {
   height: auto;
 }
 
-.form-group {
+.form-group, .kar-sidebar .widget_search .search-form label {
   margin-bottom: 1rem;
 }
 
@@ -2998,7 +3006,7 @@ textarea.form-control {
   background-color: rgba(40, 167, 69, 0.9);
 }
 
-.was-validated .form-control:valid, .form-control.is-valid {
+.was-validated .form-control:valid, .was-validated .kar-sidebar .widget_search .search-form label input[type=search]:valid, .kar-sidebar .widget_search .search-form label .was-validated input[type=search]:valid, .form-control.is-valid, .kar-sidebar .widget_search .search-form label input.is-valid[type=search] {
   border-color: #28a745;
   padding-right: calc(1.5em + 0.75rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
@@ -3006,13 +3014,18 @@ textarea.form-control {
   background-position: center right calc(0.375em + 0.1875rem);
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
-.was-validated .form-control:valid:focus, .form-control.is-valid:focus {
+
+.was-validated .form-control:valid:focus, .was-validated .kar-sidebar .widget_search .search-form label input[type=search]:valid:focus, .kar-sidebar .widget_search .search-form label .was-validated input[type=search]:valid:focus, .form-control.is-valid:focus, .kar-sidebar .widget_search .search-form label input.is-valid[type=search]:focus {
   border-color: #28a745;
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
-.was-validated .form-control:valid ~ .valid-feedback,
-.was-validated .form-control:valid ~ .valid-tooltip, .form-control.is-valid ~ .valid-feedback,
-.form-control.is-valid ~ .valid-tooltip {
+
+.was-validated .form-control:valid ~ .valid-feedback, .was-validated .kar-sidebar .widget_search .search-form label input[type=search]:valid ~ .valid-feedback, .kar-sidebar .widget_search .search-form label .was-validated input[type=search]:valid ~ .valid-feedback,
+.was-validated .form-control:valid ~ .valid-tooltip,
+.was-validated .kar-sidebar .widget_search .search-form label input[type=search]:valid ~ .valid-tooltip,
+.kar-sidebar .widget_search .search-form label .was-validated input[type=search]:valid ~ .valid-tooltip, .form-control.is-valid ~ .valid-feedback, .kar-sidebar .widget_search .search-form label input.is-valid[type=search] ~ .valid-feedback,
+.form-control.is-valid ~ .valid-tooltip,
+.kar-sidebar .widget_search .search-form label input.is-valid[type=search] ~ .valid-tooltip {
   display: block;
 }
 
@@ -3108,7 +3121,7 @@ textarea.form-control {
   background-color: rgba(220, 53, 69, 0.9);
 }
 
-.was-validated .form-control:invalid, .form-control.is-invalid {
+.was-validated .form-control:invalid, .was-validated .kar-sidebar .widget_search .search-form label input[type=search]:invalid, .kar-sidebar .widget_search .search-form label .was-validated input[type=search]:invalid, .form-control.is-invalid, .kar-sidebar .widget_search .search-form label input.is-invalid[type=search] {
   border-color: #dc3545;
   padding-right: calc(1.5em + 0.75rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23dc3545' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23dc3545' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E");
@@ -3116,13 +3129,18 @@ textarea.form-control {
   background-position: center right calc(0.375em + 0.1875rem);
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
-.was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
+
+.was-validated .form-control:invalid:focus, .was-validated .kar-sidebar .widget_search .search-form label input[type=search]:invalid:focus, .kar-sidebar .widget_search .search-form label .was-validated input[type=search]:invalid:focus, .form-control.is-invalid:focus, .kar-sidebar .widget_search .search-form label input.is-invalid[type=search]:focus {
   border-color: #dc3545;
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
-.was-validated .form-control:invalid ~ .invalid-feedback,
-.was-validated .form-control:invalid ~ .invalid-tooltip, .form-control.is-invalid ~ .invalid-feedback,
-.form-control.is-invalid ~ .invalid-tooltip {
+
+.was-validated .form-control:invalid ~ .invalid-feedback, .was-validated .kar-sidebar .widget_search .search-form label input[type=search]:invalid ~ .invalid-feedback, .kar-sidebar .widget_search .search-form label .was-validated input[type=search]:invalid ~ .invalid-feedback,
+.was-validated .form-control:invalid ~ .invalid-tooltip,
+.was-validated .kar-sidebar .widget_search .search-form label input[type=search]:invalid ~ .invalid-tooltip,
+.kar-sidebar .widget_search .search-form label .was-validated input[type=search]:invalid ~ .invalid-tooltip, .form-control.is-invalid ~ .invalid-feedback, .kar-sidebar .widget_search .search-form label input.is-invalid[type=search] ~ .invalid-feedback,
+.form-control.is-invalid ~ .invalid-tooltip,
+.kar-sidebar .widget_search .search-form label input.is-invalid[type=search] ~ .invalid-tooltip {
   display: block;
 }
 
@@ -3218,7 +3236,8 @@ textarea.form-control {
             justify-content: center;
     margin-bottom: 0;
   }
-  .form-inline .form-group {
+
+    .form-inline .form-group, .form-inline .kar-sidebar .widget_search .search-form label, .kar-sidebar .widget_search .search-form .form-inline label {
     display: -webkit-box;
     display: flex;
     -webkit-box-flex: 0;
@@ -3230,7 +3249,8 @@ textarea.form-control {
             align-items: center;
     margin-bottom: 0;
   }
-  .form-inline .form-control {
+
+    .form-inline .form-control, .form-inline .kar-sidebar .widget_search .search-form label input[type=search], .kar-sidebar .widget_search .search-form label .form-inline input[type=search] {
     display: inline-block;
     width: auto;
     vertical-align: middle;
@@ -3270,7 +3290,7 @@ textarea.form-control {
   }
 }
 
-.btn {
+.btn, .kar-sidebar .widget_search .search-form .search-submit {
   display: inline-block;
   font-weight: 400;
   color: #212529;
@@ -3290,51 +3310,62 @@ textarea.form-control {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
-  .btn {
+    .btn, .kar-sidebar .widget_search .search-form .search-submit {
     -webkit-transition: none;
     transition: none;
   }
 }
-.btn:hover {
+
+.btn:hover, .kar-sidebar .widget_search .search-form .search-submit:hover {
   color: #212529;
   text-decoration: none;
 }
-.btn:focus, .btn.focus {
+
+.btn:focus, .kar-sidebar .widget_search .search-form .search-submit:focus, .btn.focus, .kar-sidebar .widget_search .search-form .focus.search-submit {
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
-.btn.disabled, .btn:disabled {
+
+.btn.disabled, .kar-sidebar .widget_search .search-form .disabled.search-submit, .btn:disabled, .kar-sidebar .widget_search .search-form .search-submit:disabled {
   opacity: 0.65;
 }
-a.btn.disabled,
-fieldset:disabled a.btn {
+
+a.btn.disabled, .kar-sidebar .widget_search .search-form a.disabled.search-submit,
+fieldset:disabled a.btn,
+fieldset:disabled .kar-sidebar .widget_search .search-form a.search-submit,
+.kar-sidebar .widget_search .search-form fieldset:disabled a.search-submit {
   pointer-events: none;
 }
 
-.btn-primary {
+.btn-primary, .kar-sidebar .widget_search .search-form .search-submit {
   color: #fff;
   background-color: #5d5c5e;
   border-color: #5d5c5e;
 }
-.btn-primary:hover {
+
+.btn-primary:hover, .kar-sidebar .widget_search .search-form .search-submit:hover {
   color: #fff;
   background-color: #4a494b;
   border-color: #444344;
 }
-.btn-primary:focus, .btn-primary.focus {
+
+.btn-primary:focus, .kar-sidebar .widget_search .search-form .search-submit:focus, .btn-primary.focus, .kar-sidebar .widget_search .search-form .focus.search-submit {
   box-shadow: 0 0 0 0.2rem rgba(117, 116, 118, 0.5);
 }
-.btn-primary.disabled, .btn-primary:disabled {
+
+.btn-primary.disabled, .kar-sidebar .widget_search .search-form .disabled.search-submit, .btn-primary:disabled, .kar-sidebar .widget_search .search-form .search-submit:disabled {
   color: #fff;
   background-color: #5d5c5e;
   border-color: #5d5c5e;
 }
-.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+
+.btn-primary:not(:disabled):not(.disabled):active, .kar-sidebar .widget_search .search-form .search-submit:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .kar-sidebar .widget_search .search-form .search-submit:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle, .kar-sidebar .widget_search .search-form .show > .dropdown-toggle.search-submit {
   color: #fff;
   background-color: #444344;
   border-color: #3d3c3e;
 }
-.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
+
+.btn-primary:not(:disabled):not(.disabled):active:focus, .kar-sidebar .widget_search .search-form .search-submit:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .kar-sidebar .widget_search .search-form .search-submit:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus, .kar-sidebar .widget_search .search-form .show > .dropdown-toggle.search-submit:focus {
   box-shadow: 0 0 0 0.2rem rgba(117, 116, 118, 0.5);
 }
 
@@ -3745,14 +3776,14 @@ fieldset:disabled a.btn {
   pointer-events: none;
 }
 
-.btn-lg, .btn-group-lg > .btn {
+.btn-lg, .btn-group-lg > .btn, .kar-sidebar .widget_search .search-form .btn-group-lg > .search-submit {
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
   line-height: 1.5;
   border-radius: 0;
 }
 
-.btn-sm, .btn-group-sm > .btn {
+.btn-sm, .btn-group-sm > .btn, .kar-sidebar .widget_search .search-form .btn-group-sm > .search-submit {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   line-height: 1.5;
@@ -4044,20 +4075,28 @@ input[type=button].btn-block {
   display: inline-flex;
   vertical-align: middle;
 }
-.btn-group > .btn,
-.btn-group-vertical > .btn {
+
+.btn-group > .btn, .kar-sidebar .widget_search .search-form .btn-group > .search-submit,
+.btn-group-vertical > .btn,
+.kar-sidebar .widget_search .search-form .btn-group-vertical > .search-submit {
   position: relative;
   -webkit-box-flex: 1;
           flex: 1 1 auto;
 }
-.btn-group > .btn:hover,
-.btn-group-vertical > .btn:hover {
+
+.btn-group > .btn:hover, .kar-sidebar .widget_search .search-form .btn-group > .search-submit:hover,
+.btn-group-vertical > .btn:hover,
+.kar-sidebar .widget_search .search-form .btn-group-vertical > .search-submit:hover {
   z-index: 1;
 }
-.btn-group > .btn:focus, .btn-group > .btn:active, .btn-group > .btn.active,
+
+.btn-group > .btn:focus, .kar-sidebar .widget_search .search-form .btn-group > .search-submit:focus, .btn-group > .btn:active, .kar-sidebar .widget_search .search-form .btn-group > .search-submit:active, .btn-group > .btn.active, .kar-sidebar .widget_search .search-form .btn-group > .active.search-submit,
 .btn-group-vertical > .btn:focus,
+.kar-sidebar .widget_search .search-form .btn-group-vertical > .search-submit:focus,
 .btn-group-vertical > .btn:active,
-.btn-group-vertical > .btn.active {
+.kar-sidebar .widget_search .search-form .btn-group-vertical > .search-submit:active,
+.btn-group-vertical > .btn.active,
+.kar-sidebar .widget_search .search-form .btn-group-vertical > .active.search-submit {
   z-index: 1;
 }
 
@@ -4072,7 +4111,7 @@ input[type=button].btn-block {
   width: auto;
 }
 
-.btn-group > .btn:not(:first-child),
+.btn-group > .btn:not(:first-child), .kar-sidebar .widget_search .search-form .btn-group > .search-submit:not(:first-child),
 .btn-group > .btn-group:not(:first-child) {
   margin-left: -1px;
 }
@@ -4087,12 +4126,12 @@ input[type=button].btn-block {
   margin-right: 0;
 }
 
-.btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split {
+.btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split, .kar-sidebar .widget_search .search-form .btn-group-sm > .search-submit + .dropdown-toggle-split {
   padding-right: 0.375rem;
   padding-left: 0.375rem;
 }
 
-.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split {
+.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split, .kar-sidebar .widget_search .search-form .btn-group-lg > .search-submit + .dropdown-toggle-split {
   padding-right: 0.75rem;
   padding-left: 0.75rem;
 }
@@ -4106,20 +4145,26 @@ input[type=button].btn-block {
   -webkit-box-pack: center;
           justify-content: center;
 }
-.btn-group-vertical > .btn,
+
+.btn-group-vertical > .btn, .kar-sidebar .widget_search .search-form .btn-group-vertical > .search-submit,
 .btn-group-vertical > .btn-group {
   width: 100%;
 }
-.btn-group-vertical > .btn:not(:first-child),
+
+.btn-group-vertical > .btn:not(:first-child), .kar-sidebar .widget_search .search-form .btn-group-vertical > .search-submit:not(:first-child),
 .btn-group-vertical > .btn-group:not(:first-child) {
   margin-top: -1px;
 }
-.btn-group-toggle > .btn,
-.btn-group-toggle > .btn-group > .btn {
+
+.btn-group-toggle > .btn, .kar-sidebar .widget_search .search-form .btn-group-toggle > .search-submit,
+.btn-group-toggle > .btn-group > .btn,
+.kar-sidebar .widget_search .search-form .btn-group-toggle > .btn-group > .search-submit {
   margin-bottom: 0;
 }
-.btn-group-toggle > .btn input[type=radio],
+
+.btn-group-toggle > .btn input[type=radio], .kar-sidebar .widget_search .search-form .btn-group-toggle > .search-submit input[type=radio],
 .btn-group-toggle > .btn input[type=checkbox],
+.kar-sidebar .widget_search .search-form .btn-group-toggle > .search-submit input[type=checkbox],
 .btn-group-toggle > .btn-group > .btn input[type=radio],
 .btn-group-toggle > .btn-group > .btn input[type=checkbox] {
   position: absolute;
@@ -4136,7 +4181,8 @@ input[type=button].btn-block {
           align-items: stretch;
   width: 100%;
 }
-.input-group > .form-control,
+
+.input-group > .form-control, .kar-sidebar .widget_search .search-form label .input-group > input[type=search],
 .input-group > .form-control-plaintext,
 .input-group > .custom-select,
 .input-group > .custom-file {
@@ -4146,21 +4192,28 @@ input[type=button].btn-block {
   width: 1%;
   margin-bottom: 0;
 }
-.input-group > .form-control + .form-control,
+
+.input-group > .form-control + .form-control, .kar-sidebar .widget_search .search-form label .input-group > input[type=search] + .form-control, .kar-sidebar .widget_search .search-form label .input-group > .form-control + input[type=search], .kar-sidebar .widget_search .search-form label .input-group > input[type=search] + input[type=search],
 .input-group > .form-control + .custom-select,
+.kar-sidebar .widget_search .search-form label .input-group > input[type=search] + .custom-select,
 .input-group > .form-control + .custom-file,
+.kar-sidebar .widget_search .search-form label .input-group > input[type=search] + .custom-file,
 .input-group > .form-control-plaintext + .form-control,
+.kar-sidebar .widget_search .search-form label .input-group > .form-control-plaintext + input[type=search],
 .input-group > .form-control-plaintext + .custom-select,
 .input-group > .form-control-plaintext + .custom-file,
 .input-group > .custom-select + .form-control,
+.kar-sidebar .widget_search .search-form label .input-group > .custom-select + input[type=search],
 .input-group > .custom-select + .custom-select,
 .input-group > .custom-select + .custom-file,
 .input-group > .custom-file + .form-control,
+.kar-sidebar .widget_search .search-form label .input-group > .custom-file + input[type=search],
 .input-group > .custom-file + .custom-select,
 .input-group > .custom-file + .custom-file {
   margin-left: -1px;
 }
-.input-group > .form-control:focus,
+
+.input-group > .form-control:focus, .kar-sidebar .widget_search .search-form label .input-group > input[type=search]:focus,
 .input-group > .custom-select:focus,
 .input-group > .custom-file .custom-file-input:focus ~ .custom-file-label {
   z-index: 3;
@@ -4179,23 +4232,44 @@ input[type=button].btn-block {
   display: -webkit-box;
   display: flex;
 }
-.input-group-prepend .btn,
-.input-group-append .btn {
+
+.input-group-prepend .btn, .input-group-prepend .kar-sidebar .widget_search .search-form .search-submit, .kar-sidebar .widget_search .search-form .input-group-prepend .search-submit,
+.input-group-append .btn,
+.input-group-append .kar-sidebar .widget_search .search-form .search-submit,
+.kar-sidebar .widget_search .search-form .input-group-append .search-submit {
   position: relative;
   z-index: 2;
 }
-.input-group-prepend .btn:focus,
-.input-group-append .btn:focus {
+
+.input-group-prepend .btn:focus, .input-group-prepend .kar-sidebar .widget_search .search-form .search-submit:focus, .kar-sidebar .widget_search .search-form .input-group-prepend .search-submit:focus,
+.input-group-append .btn:focus,
+.input-group-append .kar-sidebar .widget_search .search-form .search-submit:focus,
+.kar-sidebar .widget_search .search-form .input-group-append .search-submit:focus {
   z-index: 3;
 }
-.input-group-prepend .btn + .btn,
+
+.input-group-prepend .btn + .btn, .input-group-prepend .kar-sidebar .widget_search .search-form .search-submit + .btn, .kar-sidebar .widget_search .search-form .input-group-prepend .search-submit + .btn, .input-group-prepend .kar-sidebar .widget_search .search-form .btn + .search-submit, .kar-sidebar .widget_search .search-form .input-group-prepend .btn + .search-submit, .input-group-prepend .kar-sidebar .widget_search .search-form .search-submit + .search-submit, .kar-sidebar .widget_search .search-form .input-group-prepend .search-submit + .search-submit,
 .input-group-prepend .btn + .input-group-text,
+.input-group-prepend .kar-sidebar .widget_search .search-form .search-submit + .input-group-text,
+.kar-sidebar .widget_search .search-form .input-group-prepend .search-submit + .input-group-text,
 .input-group-prepend .input-group-text + .input-group-text,
 .input-group-prepend .input-group-text + .btn,
+.input-group-prepend .kar-sidebar .widget_search .search-form .input-group-text + .search-submit,
+.kar-sidebar .widget_search .search-form .input-group-prepend .input-group-text + .search-submit,
 .input-group-append .btn + .btn,
+.input-group-append .kar-sidebar .widget_search .search-form .search-submit + .btn,
+.kar-sidebar .widget_search .search-form .input-group-append .search-submit + .btn,
+.input-group-append .kar-sidebar .widget_search .search-form .btn + .search-submit,
+.kar-sidebar .widget_search .search-form .input-group-append .btn + .search-submit,
+.input-group-append .kar-sidebar .widget_search .search-form .search-submit + .search-submit,
+.kar-sidebar .widget_search .search-form .input-group-append .search-submit + .search-submit,
 .input-group-append .btn + .input-group-text,
+.input-group-append .kar-sidebar .widget_search .search-form .search-submit + .input-group-text,
+.kar-sidebar .widget_search .search-form .input-group-append .search-submit + .input-group-text,
 .input-group-append .input-group-text + .input-group-text,
-.input-group-append .input-group-text + .btn {
+.input-group-append .input-group-text + .btn,
+.input-group-append .kar-sidebar .widget_search .search-form .input-group-text + .search-submit,
+.kar-sidebar .widget_search .search-form .input-group-append .input-group-text + .search-submit {
   margin-left: -1px;
 }
 
@@ -4228,33 +4302,37 @@ input[type=button].btn-block {
   margin-top: 0;
 }
 
-.input-group-lg > .form-control:not(textarea),
+.input-group-lg > .form-control:not(textarea), .kar-sidebar .widget_search .search-form label .input-group-lg > input[type=search]:not(textarea),
 .input-group-lg > .custom-select {
   height: calc(1.5em + 1rem + 2px);
 }
 
-.input-group-lg > .form-control,
+.input-group-lg > .form-control, .kar-sidebar .widget_search .search-form label .input-group-lg > input[type=search],
 .input-group-lg > .custom-select,
 .input-group-lg > .input-group-prepend > .input-group-text,
 .input-group-lg > .input-group-append > .input-group-text,
 .input-group-lg > .input-group-prepend > .btn,
-.input-group-lg > .input-group-append > .btn {
+.kar-sidebar .widget_search .search-form .input-group-lg > .input-group-prepend > .search-submit,
+.input-group-lg > .input-group-append > .btn,
+.kar-sidebar .widget_search .search-form .input-group-lg > .input-group-append > .search-submit {
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
   line-height: 1.5;
 }
 
-.input-group-sm > .form-control:not(textarea),
+.input-group-sm > .form-control:not(textarea), .kar-sidebar .widget_search .search-form label .input-group-sm > input[type=search]:not(textarea),
 .input-group-sm > .custom-select {
   height: calc(1.5em + 0.5rem + 2px);
 }
 
-.input-group-sm > .form-control,
+.input-group-sm > .form-control, .kar-sidebar .widget_search .search-form label .input-group-sm > input[type=search],
 .input-group-sm > .custom-select,
 .input-group-sm > .input-group-prepend > .input-group-text,
 .input-group-sm > .input-group-append > .input-group-text,
 .input-group-sm > .input-group-prepend > .btn,
-.input-group-sm > .input-group-append > .btn {
+.kar-sidebar .widget_search .search-form .input-group-sm > .input-group-prepend > .search-submit,
+.input-group-sm > .input-group-append > .btn,
+.kar-sidebar .widget_search .search-form .input-group-sm > .input-group-append > .search-submit {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   line-height: 1.5;
@@ -5392,7 +5470,7 @@ a.badge:hover, a.badge:focus {
   display: none;
 }
 
-.btn .badge {
+.btn .badge, .kar-sidebar .widget_search .search-form .search-submit .badge {
   position: relative;
   top: -1px;
 }
@@ -6845,19 +6923,17 @@ button.bg-light:focus {
   background-color: #dae0e5 !important;
 }
 
-.bg-dark, .post-podcast .mejs-controls, .post-podcast, .kar-sidebar .kar-widget .kar-widget-title {
+.bg-dark, .post-podcast .mejs-controls, .post-podcast {
   background-color: #343a40 !important;
 }
 
-a.bg-dark:hover, .post-podcast a.mejs-controls:hover, a.post-podcast:hover, .kar-sidebar .kar-widget a.kar-widget-title:hover, a.bg-dark:focus, .post-podcast a.mejs-controls:focus, a.post-podcast:focus, .kar-sidebar .kar-widget a.kar-widget-title:focus,
+a.bg-dark:hover, .post-podcast a.mejs-controls:hover, a.post-podcast:hover, a.bg-dark:focus, .post-podcast a.mejs-controls:focus, a.post-podcast:focus,
 button.bg-dark:hover,
 .post-podcast button.mejs-controls:hover,
 button.post-podcast:hover,
-.kar-sidebar .kar-widget button.kar-widget-title:hover,
 button.bg-dark:focus,
 .post-podcast button.mejs-controls:focus,
-button.post-podcast:focus,
-.kar-sidebar .kar-widget button.kar-widget-title:focus {
+button.post-podcast:focus {
   background-color: #1d2124 !important;
 }
 
@@ -7023,7 +7099,7 @@ button.post-podcast:focus,
   display: table-cell !important;
 }
 
-.d-flex, .kar-sidebar .cat-item {
+.d-flex, .kar-sidebar .widget_search .search-form, .kar-sidebar .cat-item {
   display: -webkit-box !important;
   display: flex !important;
 }
@@ -8235,7 +8311,7 @@ button.post-podcast:focus,
   width: 75% !important;
 }
 
-.w-100, .kar-sidebar .cat-item a {
+.w-100, .kar-sidebar .widget_search .search-form label, .kar-sidebar .cat-item a {
   width: 100% !important;
 }
 
@@ -8313,7 +8389,7 @@ button.post-podcast:focus,
   margin-right: 0 !important;
 }
 
-.mb-0,
+.mb-0, .kar-sidebar .widget_search .search-form label,
 .my-0 {
   margin-bottom: 0 !important;
 }
@@ -8492,7 +8568,7 @@ button.post-podcast:focus,
   padding-left: 0.25rem !important;
 }
 
-.p-2, .kar-sidebar .recentcomments, .kar-sidebar .cat-item span, .kar-sidebar .cat-item, .kar-sidebar .kar-widget .kar-widget-title {
+.p-2, .kar-sidebar .cat-item span, .kar-sidebar .cat-item {
   padding: 0.5rem !important;
 }
 
@@ -10494,7 +10570,7 @@ button.post-podcast:focus,
   text-align: right !important;
 }
 
-.text-center, .kar-sidebar .kar-widget .kar-widget-title {
+.text-center, .kar-sidebar .kar-widget {
   text-align: center !important;
 }
 
@@ -10586,10 +10662,9 @@ button.post-podcast:focus,
   font-style: italic !important;
 }
 
-.text-white, .bg-dark .kar-text-link, .post-podcast .kar-text-link, .kar-sidebar .kar-widget .kar-widget-title .kar-text-link, .bg-dark .kar-link, .post-podcast .kar-link, .bg-dark .kar-sidebar a, .post-podcast .kar-sidebar a, .kar-sidebar .bg-dark a, .kar-sidebar .post-podcast a, .kar-sidebar .kar-widget .kar-widget-title .kar-link, .kar-sidebar .kar-widget .kar-widget-title a, .bg-dark .comment-edit-link, .post-podcast .comment-edit-link, .kar-sidebar .kar-widget .kar-widget-title .comment-edit-link,
+.text-white, .bg-dark .kar-text-link, .post-podcast .kar-text-link, .bg-dark .kar-link, .post-podcast .kar-link, .bg-dark .kar-sidebar a, .post-podcast .kar-sidebar a, .kar-sidebar .bg-dark a, .kar-sidebar .post-podcast a, .bg-dark .comment-edit-link, .post-podcast .comment-edit-link,
 .bg-dark .comment-reply-link,
-.post-podcast .comment-reply-link,
-.kar-sidebar .kar-widget .kar-widget-title .comment-reply-link, .bg-dark, .post-podcast .mejs-controls, .post-podcast, .kar-sidebar .kar-widget .kar-widget-title {
+.post-podcast .comment-reply-link, .bg-dark, .post-podcast .mejs-controls, .post-podcast {
   color: #fff !important;
 }
 
@@ -10831,13 +10906,11 @@ body {
   text-decoration: none;
 }
 
-.bg-dark .kar-text-link:hover, .post-podcast .kar-text-link:hover, .kar-sidebar .kar-widget .kar-widget-title .kar-text-link:hover, .bg-dark .kar-link:hover, .post-podcast .kar-link:hover, .bg-dark .kar-sidebar a:hover, .post-podcast .kar-sidebar a:hover, .kar-sidebar .bg-dark a:hover, .kar-sidebar .post-podcast a:hover, .kar-sidebar .kar-widget .kar-widget-title .kar-link:hover, .kar-sidebar .kar-widget .kar-widget-title a:hover, .bg-dark .comment-edit-link:hover, .post-podcast .comment-edit-link:hover, .kar-sidebar .kar-widget .kar-widget-title .comment-edit-link:hover,
+.bg-dark .kar-text-link:hover, .post-podcast .kar-text-link:hover, .bg-dark .kar-link:hover, .post-podcast .kar-link:hover, .bg-dark .kar-sidebar a:hover, .post-podcast .kar-sidebar a:hover, .kar-sidebar .bg-dark a:hover, .kar-sidebar .post-podcast a:hover, .bg-dark .comment-edit-link:hover, .post-podcast .comment-edit-link:hover,
 .bg-dark .comment-reply-link:hover,
-.post-podcast .comment-reply-link:hover,
-.kar-sidebar .kar-widget .kar-widget-title .comment-reply-link:hover, .bg-dark .kar-text-link:focus, .post-podcast .kar-text-link:focus, .kar-sidebar .kar-widget .kar-widget-title .kar-text-link:focus, .bg-dark .kar-link:focus, .post-podcast .kar-link:focus, .bg-dark .kar-sidebar a:focus, .post-podcast .kar-sidebar a:focus, .kar-sidebar .bg-dark a:focus, .kar-sidebar .post-podcast a:focus, .kar-sidebar .kar-widget .kar-widget-title .kar-link:focus, .kar-sidebar .kar-widget .kar-widget-title a:focus, .bg-dark .comment-edit-link:focus, .post-podcast .comment-edit-link:focus, .kar-sidebar .kar-widget .kar-widget-title .comment-edit-link:focus,
+.post-podcast .comment-reply-link:hover, .bg-dark .kar-text-link:focus, .post-podcast .kar-text-link:focus, .bg-dark .kar-link:focus, .post-podcast .kar-link:focus, .bg-dark .kar-sidebar a:focus, .post-podcast .kar-sidebar a:focus, .kar-sidebar .bg-dark a:focus, .kar-sidebar .post-podcast a:focus, .bg-dark .comment-edit-link:focus, .post-podcast .comment-edit-link:focus,
 .bg-dark .comment-reply-link:focus,
-.post-podcast .comment-reply-link:focus,
-.kar-sidebar .kar-widget .kar-widget-title .comment-reply-link:focus {
+.post-podcast .comment-reply-link:focus {
   color: rgba(255, 255, 255, 0.8) !important;
 }
 
@@ -11042,8 +11115,11 @@ li.active a.comment-reply-link:after,
   font-family: "Raleway", "Open Sans", sans-serif;
 }
 
+.kar-sidebar .kar-widget {
+    border-bottom: 1px solid lightgrey;
+}
 .kar-sidebar .kar-widget .kar-widget-title {
-  font-size: 15px;
+    font-size: 20px;
   font-weight: 300;
   line-height: 1em;
   letter-spacing: 0.2px;
@@ -11062,6 +11138,17 @@ li.active a.comment-reply-link:after,
   font-size: 1rem;
 }
 
+.kar-sidebar .widget_search {
+    border: none;
+}
+
+.kar-sidebar .widget_search .kar-widget-title {
+    display: none !important;
+}
+
+.kar-sidebar .widget_search .search-form label .screen-reader-text {
+    display: none;
+}
 /*!
  * Copyright (c) 2019 Herborn Software
  *
@@ -11303,11 +11390,6 @@ figure.woocommerce-product-gallery__wrapper {
 
 .default-font, body {
   font-family: "Raleway", "Open Sans", sans-serif;
-}
-
-#milestone_settings #map {
-  width: 100%;
-  height: 200px;
 }
 
 #milestone_map,

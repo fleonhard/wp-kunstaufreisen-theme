@@ -28,7 +28,7 @@
 <div class="container-fluid">
     <div class="row">
         <?php if (is_active_sidebar('sidebar_left')): ?>
-            <aside id="secondary" class="col-12 py-4 col-xl-3 kar-sidebar" role="complementary">
+            <aside id="secondary" class="col-12 py-4 col-xl-3 kar-sidebar kar-sidebar-left" role="complementary">
                 <div class="widget-area row px-xl-4">
                     <?php dynamic_sidebar('sidebar_left'); ?>
                 </div>

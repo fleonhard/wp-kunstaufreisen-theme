@@ -14,16 +14,19 @@
 .kar-sidebar {
   .kar-widget {
     @extend .mb-4;
+    @extend .text-center;
+    border-bottom: 1px solid lightgrey;
 
     .kar-widget-title {
       @extend .article-font;
-      @extend .text-center;
-      @extend .bg-dark;
-      @extend .text-white;
-      @extend .p-2;
+      //@extend .text-center;
+      //@extend .bg-dark;
+      //@extend .text-white;
+      //@extend .p-2;
       @extend .mb-2;
       @extend .d-block;
-      font-size: 15px;
+      //font-size: 15px;
+      font-size: 20px;
       font-weight: 300;
       line-height: 1em;
       letter-spacing: 0.2px;
@@ -58,7 +61,7 @@
   // Comments Widget
   .recentcomments {
     @extend .mb-2;
-    @extend .p-2;
+    //@extend .p-2;
     font-size: 12px;
 
     span {
@@ -67,7 +70,42 @@
         font-size: 1rem;
       }
     }
+  }
 
+  .widget_search {
+    border: none;
+
+    .kar-widget-title {
+      display: none !important;
+    }
+
+    .search-form {
+      @extend .d-flex;
+
+      label {
+        @extend .form-group;
+        @extend .mb-0;
+        @extend .w-100;
+
+        .screen-reader-text {
+          display: none;
+        }
+
+        input[type=search] {
+          @extend .form-control;
+        }
+      }
+
+      .search-submit {
+        @extend .btn;
+        @extend .btn-primary;
+      }
+    }
 
   }
+
+}
+
+.kar-sidebar-right {
+  //text-align: right;
 }
