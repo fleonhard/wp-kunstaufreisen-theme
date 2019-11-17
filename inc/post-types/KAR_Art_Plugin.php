@@ -51,17 +51,18 @@ if (!class_exists('KAR_Art_Plugin')) {
 
         function get_gallery_images_taxonomies_query($gallery_id, ...$taxonomy_types)
         {
+            global $wpdb;
             $taxonomies = join(',', array_map(function ($tax) {
                 return '"' . esc_sql($tax) . '"';
             }, $taxonomy_types));
 
             return 'select count(p.ID) as post_count, wt.*
-                    from wp_posts p
-                    inner join wp_postmeta m on p.ID = m.post_id
-                    inner join wp_term_relationships wtr on p.ID = wtr.object_id
-                    inner join wp_term_taxonomy wtt on wtr.term_taxonomy_id = wtt.term_taxonomy_id
-                    inner join wp_terms wt on wtt.term_id = wt.term_id
-                    where m.meta_key = "kar_art_image_gallery" 
+                    from ' . $wpdb->prefix . 'posts p
+                    inner join ' . $wpdb->prefix . 'postmeta m on p.ID = m.post_id
+                    inner join ' . $wpdb->prefix . 'term_relationships wtr on p.ID = wtr.object_id
+                    inner join ' . $wpdb->prefix . 'term_taxonomy wtt on wtr.term_taxonomy_id = wtt.term_taxonomy_id
+                    inner join ' . $wpdb->prefix . 'terms wt on wtt.term_id = wt.term_id
+                    where m.meta_key = "' . $this->ART_IMAGE_GALLERY_META . '" 
                     && m.meta_value = ' . esc_sql($gallery_id) . ' 
                     && wtt.taxonomy in (' . $taxonomies . ') 
                     && p.post_status = "publish"
@@ -71,11 +72,12 @@ if (!class_exists('KAR_Art_Plugin')) {
 
         function get_gallery_term_images_query($gallery_id, $term_id)
         {
+            global $wpdb;
             return 'select distinct p.*
-                    from wp_posts p
-                    inner join wp_postmeta m on p.ID = m.post_id
-                    inner join wp_term_relationships wtr on p.ID = wtr.object_id
-                    where m.meta_key = "kar_art_image_gallery"
+                    from ' . $wpdb->prefix . 'posts p
+                    inner join ' . $wpdb->prefix . 'postmeta m on p.ID = m.post_id
+                    inner join ' . $wpdb->prefix . 'term_relationships wtr on p.ID = wtr.object_id
+                    where m.meta_key = "' . $this->ART_IMAGE_GALLERY_META . '" 
                     && m.meta_value = ' . esc_sql($gallery_id) . '
                     && wtr.term_taxonomy_id = ' . esc_sql($term_id) . '
                     && p.post_status = "publish"';
