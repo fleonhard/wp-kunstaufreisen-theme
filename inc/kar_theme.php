@@ -10,9 +10,7 @@ require get_template_directory() . '/inc/kar_walker_nav_menu.php';
 require get_template_directory() . '/inc/kar_walker_comment.php';
 require get_template_directory() . '/inc/post-types/KAR_Podcast_Plugin.php';
 require get_template_directory() . '/inc/post-types/KAR_Travel_Plugin.php';
-//require get_template_directory() . '/inc/post-types/travel_step.php';
-//require get_template_directory() . '/inc/post-types/kar_test_post_type.php';
-require get_template_directory() . '/inc/post-types/art.php';
+require get_template_directory() . '/inc/post-types/KAR_Art_Plugin.php';
 
 defined('ABSPATH') || exit;
 
@@ -90,8 +88,13 @@ if (!class_exists('KAR_Theme')) {
         {
             if (!$post) {
                 global $post;
+                global $wp_query;
             }
-            if (get_post_type($post) != 'post') {
+            $taxonomy = $wp_query->get('taxonomy');
+
+            if ($taxonomy) {
+                get_template_part('templates/' . $template, $taxonomy);
+            } else if (get_post_type($post) != 'post') {
                 get_template_part('templates/' . $template, get_post_type($post));
             } else {
                 get_template_part('templates/' . $template, get_post_format($post));
@@ -121,7 +124,7 @@ if (!class_exists('KAR_Theme')) {
             KAR_Woocommerce::install();
             KAR_Podcast_Plugin::init();
             KAR_Travel_Plugin::init();
-            //KAR_Test_Post_Type::install();
+            KAR_Art_Plugin::init();
         }
 
         function register_lang()
@@ -180,7 +183,7 @@ if (!class_exists('KAR_Theme')) {
         function register_query_post_types(\WP_Query $query)
         {
             if (is_home() && $query->is_main_query()) {
-                $query->set('post_type', array('post', 'podcast', 'podcast_episode', 'travel_trip', 'travel_milestone'));
+                $query->set('post_type', array('post', 'podcast', 'podcast_episode', 'travel_trip', 'travel_milestone', 'art_image'));
             }
             return $query;
         }

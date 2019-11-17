@@ -33,9 +33,20 @@ if (!class_exists('HTML')) {
             echo '<input type="' . $type . '" class="large-text" name="' . $id . '" id="' . $id . '" value="' . esc_attr__($value) . '" ' . ($hidden ? 'hidden' : '') . '>';
         }
 
-        public static function meta_input($type, $meta_key, $value, $hidden = false)
+        public static function label($for, $label, $hidden = false)
+        {
+            if ($hidden || $label === '') {
+                echo '';
+            } else {
+                echo '<label for="' . $for . '">' . $label . '</label>';
+            }
+
+        }
+
+        public static function meta_input($type, $meta_key, $value, $hidden = false, $label = '')
         {
             self::nonce($meta_key);
+            self::label($meta_key, $label, $hidden);
             self::input($type, $meta_key, $value, $hidden);
         }
 

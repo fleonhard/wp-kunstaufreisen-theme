@@ -2807,7 +2807,7 @@ pre code {
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
-    .form-control, .kar-sidebar .widget_search .search-form label input[type=search] {
+  .form-control, .kar-sidebar .widget_search .search-form label input[type=search] {
     -webkit-transition: none;
     transition: none;
   }
@@ -3224,8 +3224,7 @@ textarea.form-control {
             justify-content: center;
     margin-bottom: 0;
   }
-
-    .form-inline .form-group, .form-inline .kar-sidebar .widget_search .search-form label, .kar-sidebar .widget_search .search-form .form-inline label {
+  .form-inline .form-group, .form-inline .kar-sidebar .widget_search .search-form label, .kar-sidebar .widget_search .search-form .form-inline label {
     display: -webkit-box;
     display: flex;
     -webkit-box-flex: 0;
@@ -3237,8 +3236,7 @@ textarea.form-control {
             align-items: center;
     margin-bottom: 0;
   }
-
-    .form-inline .form-control, .form-inline .kar-sidebar .widget_search .search-form label input[type=search], .kar-sidebar .widget_search .search-form label .form-inline input[type=search] {
+  .form-inline .form-control, .form-inline .kar-sidebar .widget_search .search-form label input[type=search], .kar-sidebar .widget_search .search-form label .form-inline input[type=search] {
     display: inline-block;
     width: auto;
     vertical-align: middle;
@@ -3298,7 +3296,7 @@ textarea.form-control {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
-    .btn, .kar-sidebar .widget_search .search-form .search-submit {
+  .btn, .kar-sidebar .widget_search .search-form .search-submit {
     -webkit-transition: none;
     transition: none;
   }
@@ -6889,15 +6887,17 @@ button.bg-light:focus {
   background-color: #dae0e5 !important;
 }
 
-.bg-dark, .post-podcast .mejs-controls, .post-podcast {
+.bg-dark, .gallery .gallery-item .overlay, .post-podcast .mejs-controls, .post-podcast {
   background-color: #343a40 !important;
 }
 
-a.bg-dark:hover, .post-podcast a.mejs-controls:hover, a.post-podcast:hover, a.bg-dark:focus, .post-podcast a.mejs-controls:focus, a.post-podcast:focus,
+a.bg-dark:hover, .gallery .gallery-item a.overlay:hover, .post-podcast a.mejs-controls:hover, a.post-podcast:hover, a.bg-dark:focus, .gallery .gallery-item a.overlay:focus, .post-podcast a.mejs-controls:focus, a.post-podcast:focus,
 button.bg-dark:hover,
+.gallery .gallery-item button.overlay:hover,
 .post-podcast button.mejs-controls:hover,
 button.post-podcast:hover,
 button.bg-dark:focus,
+.gallery .gallery-item button.overlay:focus,
 .post-podcast button.mejs-controls:focus,
 button.post-podcast:focus {
   background-color: #1d2124 !important;
@@ -10628,9 +10628,10 @@ button.post-podcast:focus {
   font-style: italic !important;
 }
 
-.text-white, .bg-dark .kar-text-link, .post-podcast .kar-text-link, .bg-dark .kar-link, .post-podcast .kar-link, .bg-dark .kar-sidebar a, .post-podcast .kar-sidebar a, .kar-sidebar .bg-dark a, .kar-sidebar .post-podcast a, .bg-dark .comment-edit-link, .post-podcast .comment-edit-link,
+.text-white, .bg-dark .kar-text-link, .gallery .gallery-item .overlay .kar-text-link, .post-podcast .kar-text-link, .bg-dark .kar-link, .gallery .gallery-item .overlay .kar-link, .post-podcast .kar-link, .bg-dark .kar-sidebar a, .gallery .gallery-item .overlay .kar-sidebar a, .post-podcast .kar-sidebar a, .kar-sidebar .bg-dark a, .kar-sidebar .gallery .gallery-item .overlay a, .gallery .gallery-item .kar-sidebar .overlay a, .kar-sidebar .post-podcast a, .bg-dark .comment-edit-link, .gallery .gallery-item .overlay .comment-edit-link, .post-podcast .comment-edit-link,
 .bg-dark .comment-reply-link,
-.post-podcast .comment-reply-link, .bg-dark, .post-podcast .mejs-controls, .post-podcast {
+.gallery .gallery-item .overlay .comment-reply-link,
+.post-podcast .comment-reply-link, .bg-dark, .gallery .gallery-item .overlay, .post-podcast .mejs-controls, .post-podcast {
   color: #fff !important;
 }
 
@@ -10872,10 +10873,12 @@ body {
   text-decoration: none;
 }
 
-.bg-dark .kar-text-link:hover, .post-podcast .kar-text-link:hover, .bg-dark .kar-link:hover, .post-podcast .kar-link:hover, .bg-dark .kar-sidebar a:hover, .post-podcast .kar-sidebar a:hover, .kar-sidebar .bg-dark a:hover, .kar-sidebar .post-podcast a:hover, .bg-dark .comment-edit-link:hover, .post-podcast .comment-edit-link:hover,
+.bg-dark .kar-text-link:hover, .gallery .gallery-item .overlay .kar-text-link:hover, .post-podcast .kar-text-link:hover, .bg-dark .kar-link:hover, .gallery .gallery-item .overlay .kar-link:hover, .post-podcast .kar-link:hover, .bg-dark .kar-sidebar a:hover, .gallery .gallery-item .overlay .kar-sidebar a:hover, .post-podcast .kar-sidebar a:hover, .kar-sidebar .bg-dark a:hover, .kar-sidebar .gallery .gallery-item .overlay a:hover, .gallery .gallery-item .kar-sidebar .overlay a:hover, .kar-sidebar .post-podcast a:hover, .bg-dark .comment-edit-link:hover, .gallery .gallery-item .overlay .comment-edit-link:hover, .post-podcast .comment-edit-link:hover,
 .bg-dark .comment-reply-link:hover,
-.post-podcast .comment-reply-link:hover, .bg-dark .kar-text-link:focus, .post-podcast .kar-text-link:focus, .bg-dark .kar-link:focus, .post-podcast .kar-link:focus, .bg-dark .kar-sidebar a:focus, .post-podcast .kar-sidebar a:focus, .kar-sidebar .bg-dark a:focus, .kar-sidebar .post-podcast a:focus, .bg-dark .comment-edit-link:focus, .post-podcast .comment-edit-link:focus,
+.gallery .gallery-item .overlay .comment-reply-link:hover,
+.post-podcast .comment-reply-link:hover, .bg-dark .kar-text-link:focus, .gallery .gallery-item .overlay .kar-text-link:focus, .post-podcast .kar-text-link:focus, .bg-dark .kar-link:focus, .gallery .gallery-item .overlay .kar-link:focus, .post-podcast .kar-link:focus, .bg-dark .kar-sidebar a:focus, .gallery .gallery-item .overlay .kar-sidebar a:focus, .post-podcast .kar-sidebar a:focus, .kar-sidebar .bg-dark a:focus, .kar-sidebar .gallery .gallery-item .overlay a:focus, .gallery .gallery-item .kar-sidebar .overlay a:focus, .kar-sidebar .post-podcast a:focus, .bg-dark .comment-edit-link:focus, .gallery .gallery-item .overlay .comment-edit-link:focus, .post-podcast .comment-edit-link:focus,
 .bg-dark .comment-reply-link:focus,
+.gallery .gallery-item .overlay .comment-reply-link:focus,
 .post-podcast .comment-reply-link:focus {
   color: rgba(255, 255, 255, 0.8) !important;
 }
@@ -10918,6 +10921,10 @@ li.active a.comment-reply-link:after,
      object-position: center center;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.min-h-100 {
+  min-height: 100%;
 }
 
 .img-link {
@@ -11082,10 +11089,10 @@ li.active a.comment-reply-link:after,
 }
 
 .kar-sidebar .kar-widget {
-    border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
 }
 .kar-sidebar .kar-widget .kar-widget-title {
-    font-size: 20px;
+  font-size: 20px;
   font-weight: 300;
   line-height: 1em;
   letter-spacing: 0.2px;
@@ -11104,13 +11111,13 @@ li.active a.comment-reply-link:after,
   font-size: 1rem;
 }
 .kar-sidebar .widget_search {
-    border: none;
+  border: none;
 }
 .kar-sidebar .widget_search .kar-widget-title {
-    display: none !important;
+  display: none !important;
 }
 .kar-sidebar .widget_search .search-form label .screen-reader-text {
-    display: none;
+  display: none;
 }
 /*!
  * Copyright (c) 2019 Herborn Software
@@ -11130,6 +11137,100 @@ li.active a.comment-reply-link:after,
   font-family: "Raleway", "Open Sans", sans-serif;
 }
 
+/*!
+ * @author Florian Herborn
+ * @copyright 2019 Herborn Software
+ * @license GPL-2.0-or-later
+ *
+ * @package kar
+ */
+/*!
+ * Copyright (c) 2019 Herborn Software
+ *
+ * @package kar
+ */
+.woocommerce div.product .woocommerce-tabs ul.tabs li, .article-font, .kar-sidebar .kar-widget .kar-widget-title {
+  font-family: Noto Serif, "Playfair Display", serif;
+}
+
+.default-font, body {
+  font-family: "Raleway", "Open Sans", sans-serif;
+}
+
+.gallery {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  /* Compensate for excess margin on outer gallery flex items */
+  margin: -1rem -1rem;
+}
+.gallery .gallery-item {
+  -webkit-box-flex: 1;
+  flex: 1 0 24rem;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  position: relative;
+}
+.gallery .gallery-item .overlay {
+  position: absolute;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: all 320ms ease-in-out;
+  transition: all 320ms ease-in-out;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  padding: 16px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  color: white;
+  text-shadow: 1px 1px black;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.gallery .gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition: -webkit-transform 400ms ease-out;
+  transition: -webkit-transform 400ms ease-out;
+  transition: transform 400ms ease-out;
+  transition: transform 400ms ease-out, -webkit-transform 400ms ease-out;
+}
+.gallery .gallery-item:hover .gallery-image {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.fullscreen-image-toggle {
+  cursor: pointer;
+}
+
+/*
+
+The following rule will only run if your browser supports CSS grid.
+
+Remove or comment-out the code block below to see how the browser will fall-back to flexbox styling.
+
+*/
+@supports (display: grid) {
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    grid-gap: 1rem;
+  }
+
+  .gallery,
+.gallery-item {
+    margin: 0;
+  }
+}
 /*!
  * Copyright (c) 2019 Herborn Software
  *
@@ -11362,12 +11463,12 @@ figure.woocommerce-product-gallery__wrapper {
 }
 
 #milestone_map {
-    border: 1px solid grey;
+  border: 1px solid grey;
 }
 #milestone_map.map-fixed {
   position: fixed;
   z-index: 10;
-    top: 0;
+  top: 0;
 }
 #milestone_map .marker {
   display: block;
@@ -11381,7 +11482,7 @@ figure.woocommerce-product-gallery__wrapper {
   background-size: cover;
 }
 #milestone_map .marker.active {
-    z-index: 12;
+  z-index: 12;
 }
 #milestone_map .marker.active,
 #milestone_map .marker.active .marker-day {
@@ -11434,9 +11535,9 @@ figure.woocommerce-product-gallery__wrapper {
  * @package kar
  */
 .article-font, .kar-sidebar .kar-widget .kar-widget-title, .woocommerce div.product .woocommerce-tabs ul.tabs li {
-    font-family: Noto Serif, "Playfair Display", serif;
+  font-family: Noto Serif, "Playfair Display", serif;
 }
 
 .default-font, body {
-    font-family: "Raleway", "Open Sans", sans-serif;
+  font-family: "Raleway", "Open Sans", sans-serif;
 }

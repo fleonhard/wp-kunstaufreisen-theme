@@ -3,5 +3,6 @@
     "/public/js/app.js": "/public/js/app.js",
     "/public/css/app.css": "/public/css/app.css",
     "/public/css/admin.css": "/public/css/admin.css",
+    "/public/js/art.js": "/public/js/art.js",
     "/public/js/trip.js": "/public/js/trip.js"
 }

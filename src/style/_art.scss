@@ -1,0 +1,83 @@
+/*!
+ * @author Florian Herborn
+ * @copyright 2019 Herborn Software
+ * @license GPL-2.0-or-later
+ *
+ * @package kar
+ */
+@import "../../node_modules/mapbox-gl/dist/mapbox-gl.css";
+@import "../../node_modules/@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "core";
+
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  /* Compensate for excess margin on outer gallery flex items */
+  margin: -1rem -1rem;
+
+  .gallery-item {
+    -webkit-box-flex: 1;
+    flex: 1 0 24rem;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    position: relative;
+
+    .overlay {
+      @extend .bg-dark;
+      @include position(absolute, auto, 0, 0, 0);
+      @include support-transition(all 320ms ease-in-out);
+      background: rgb(0, 0, 0, 0.4);
+      width: 100%;
+      padding: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 1px 1px black;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 400ms ease-out;
+    }
+
+    &:hover {
+      .gallery-image {
+        transform: scale(1.15);
+      }
+    }
+  }
+}
+
+.fullscreen-image-toggle {
+  cursor: pointer;
+}
+
+
+/*
+
+The following rule will only run if your browser supports CSS grid.
+
+Remove or comment-out the code block below to see how the browser will fall-back to flexbox styling.
+
+*/
+
+@supports (display: grid) {
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    grid-gap: 1rem;
+  }
+
+  .gallery,
+  .gallery-item {
+    margin: 0;
+  }
+}

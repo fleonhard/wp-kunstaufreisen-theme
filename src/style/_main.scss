@@ -76,6 +76,10 @@ li.active a.kar-link,
   object-fit: cover;
 }
 
+.min-h-100 {
+  min-height: 100%;
+}
+
 
 .img-link {
   @include position(absolute, 0);

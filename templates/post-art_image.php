@@ -8,31 +8,30 @@
  */
 ?>
 <div class="col-12 mb-4">
-    <div class="card post-podcast">
+    <div class="card">
         <div class="row no-gutters">
             <?php if (has_post_thumbnail()): ?>
-                <div class="col-md-2">
-                    <div class="embed-responsive embed-responsive-1by1 d-none d-md-block min-h-100">
-                        <img src="<?php echo get_the_post_thumbnail_url() ?>" class="img-fit embed-responsive-item"
-                             alt="<?php echo get_the_post_thumbnail_caption() ?>">
-                        <a href="<?php echo get_the_permalink() ?>" class="btn img-link"><?php _e("Read More") ?></a>
-                    </div>
-                    <div class="embed-responsive embed-responsive-21by9 d-md-none">
+                <div class="col-md-4">
+                    <div class="embed-responsive embed-responsive-16by9 min-h-100">
                         <img src="<?php echo get_the_post_thumbnail_url() ?>" class="img-fit embed-responsive-item"
                              alt="<?php echo get_the_post_thumbnail_caption() ?>">
                         <a href="<?php echo get_the_permalink() ?>" class="btn img-link"><?php _e("Read More") ?></a>
                     </div>
                 </div>
             <?php endif; ?>
-            <div class="col-12 <?php echo has_post_thumbnail() ? 'col-md-10' : '' ?>">
+            <div class="col-12 mb-4 <?php echo has_post_thumbnail() ? 'col-md-8' : '' ?>">
                 <div class="card-body pb-0">
                     <div class="row">
                         <div class="col-12 col-md-6 mb-0 mb-md-2">
-                            <small><?php _e('Podcast', 'kar') ?></small>
+                            <small class="d-block"><?php echo apply_filters('kar_get_image_gallery_link', get_the_ID()); ?></small>
                             <a href="<?php echo get_the_permalink() ?>" class="kar-text-link">
                                 <h5 class="card-title article-font mb-0"><?php echo get_the_title() ?></h5>
                             </a>
-
+                            <div>
+                                <small><?php echo apply_filters('kar_get_image_size', get_the_ID()); ?></small>
+                                <small><?php echo apply_filters('kar_get_image_materials', get_the_ID()); ?></small>
+                                <small><?php echo apply_filters('kar_get_image_support_medium', get_the_ID()); ?></small>
+                            </div>
                         </div>
                         <div class="col-12 text-left col-md-6 text-md-right mb-2">
                             <?php echo kar_get_post_meta() ?>
@@ -47,7 +46,7 @@
                 <div class="card-footer py-1">
                     <div class="row">
                         <div class="col-12 text-center col-md-6 text-md-left">
-                            <?php echo kar_get_category_list() ?>
+                            <small><?php echo apply_filters('kar_get_image_topics', get_the_ID()) ?></small>
                         </div>
                         <div class="col-12 text-center col-md-6 text-md-right">
                             <?php echo kar_get_post_statistic() ?>
