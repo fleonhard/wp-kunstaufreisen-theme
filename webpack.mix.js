@@ -23,5 +23,6 @@ mix.options({processCssUrls: false})
     .js('src/admin.js', 'public/js')
     .js('src/trip.js', 'public/js')
     .js('src/art.js', 'public/js')
+    .js('src/animations.js', 'public/js')
     .sass('src/style/app.scss', 'public/css')
     .sass('src/style/admin.scss', 'public/css');

@@ -8,6 +8,7 @@ $header_image = get_header_image();
 ?>
 
 <header class="kar-header">
+    <div id="animation"></div>
     <div class="overlay"></div>
     <img src="<?php echo $header_image ?>">
     <div class="container h-100">

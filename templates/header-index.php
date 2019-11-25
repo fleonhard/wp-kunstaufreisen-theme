@@ -9,8 +9,10 @@ $header_image = get_header_image();
 ?>
 
 <header class="kar-header header-index">
+    <div id="animation"></div>
     <div class="overlay"></div>
     <img src="<?php echo $header_image ?>">
+
     <div class="container h-100">
         <div class="d-flex h-100 text-center align-items-center">
             <div class="w-100 text-white">

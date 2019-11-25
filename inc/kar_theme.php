@@ -59,6 +59,7 @@ if (!class_exists('KAR_Theme')) {
             add_action('kar_get_template', array($this, 'get_template'));
 
             add_action('admin_menu', array($this, 'add_admin_menu'));
+
             add_filter('excerpt_more', array($this, 'create_excerpt_more'));
         }
 
@@ -70,6 +71,7 @@ if (!class_exists('KAR_Theme')) {
         function add_admin_menu()
         {
             add_options_page(__("Theme Settings"), __("Theme Settings"), 'manage_options', 'theme-settings', array($this, 'render_options_page'));
+            $this->settings_init();
         }
 
 
@@ -83,6 +85,21 @@ if (!class_exists('KAR_Theme')) {
             echo '</form>';
         }
 
+
+        function settings_init()
+        {
+            $settings_page = 'kar_settings';
+
+
+            add_settings_section('particles', __('Particles', 'kar'), null, $settings_page);
+
+            $snow_option = 'snow';
+            register_setting($settings_page, $snow_option);
+
+            add_settings_field($snow_option, __('Snow', 'kar'), function () use ($snow_option) {
+                echo '<input type="checkbox" name="' . $snow_option . '" value="1" ' . checked(1, get_option($snow_option), false) . '/>';
+            }, $settings_page, 'particles');
+        }
 
         function get_template($template, $post = false)
         {
@@ -165,9 +182,22 @@ if (!class_exists('KAR_Theme')) {
         function add_frontend_scripts()
         {
             wp_enqueue_script('app', get_template_directory_uri() . '/public/js/app.js', array(), $this->theme->get('Version'), true);
+
+            wp_enqueue_script('animations', get_template_directory_uri() . '/public/js/animations.js', array(), $this->theme->get('Version'), true);
+            wp_localize_script('animations', 'animations', array(
+                'snow' => get_template_directory_uri() . '/assets/snow_config.json',
+                'snow_img' => get_template_directory_uri() . '/assets/snow.png',
+                'is_snowing' => $this->is_snowing()
+            ));
+
             wp_enqueue_style('app', get_template_directory_uri() . '/public/css/app.css', array(), $this->theme->get('Version'), 'all');
             wp_enqueue_style('raleway', 'https://fonts.googleapis.com/css?family=Raleway:200,300,500');
             wp_enqueue_style('playfair_display', 'https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900&display=swap');
+        }
+
+        function is_snowing()
+        {
+            return get_option('snow', false);
         }
 
         function add_admin_scripts()
