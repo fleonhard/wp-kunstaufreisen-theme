@@ -185,8 +185,8 @@ if (!class_exists('KAR_Theme')) {
 
             wp_enqueue_script('animations', get_template_directory_uri() . '/public/js/animations.js', array(), $this->theme->get('Version'), true);
             wp_localize_script('animations', 'animations', array(
-                'snow' => get_template_directory_uri() . '/assets/snow_config.json',
-                'snow_img' => get_template_directory_uri() . '/assets/snow.png',
+                'snow' => get_template_directory_uri() . '/public/assets/snow_config.json',
+                'snow_img' => get_template_directory_uri() . '/public/assets/snow.png',
                 'is_snowing' => $this->is_snowing()
             ));
 
