@@ -10851,11 +10851,13 @@
 
             if (img) {
                 $(img).on('click', function () {
-                    //modal.style.display = "block";
                     $(modal).fadeIn(1000);
-                    $(modal).on('click', function () {
+
+                    function close() {
                         $(modal).fadeOut(1000);
-                    });
+                    }
+
+                    $(modal).on('click', close);
                 });
             }
         });
