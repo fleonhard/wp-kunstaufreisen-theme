@@ -88,9 +88,10 @@ if (!class_exists('KAR_Art_Plugin')) {
             global $wpdb;
             return $wpdb->get_results($this->get_gallery_images_taxonomies_query($gallery_id,
                 $this->ART_TOPIC_TAXONOMY,
-                $this->ART_SIZE_TAXONOMY,
+                //$this->ART_SIZE_TAXONOMY,
                 $this->ART_SUPPORT_MEDIUM_TAXONOMY,
-                $this->ART_STYLE_TAXONOMY));
+                $this->ART_STYLE_TAXONOMY
+            ));
         }
 
         function get_gallery_taxonomy_images($taxonomy_id)
