@@ -14,7 +14,8 @@
         <div class="d-flex w-100 justify-content-between">
             <!--        <small>-->
             <?php //echo get_the_title(get_post_meta(get_the_ID(), 'kar_episode_podcast', true)) ?><!--</small>-->
-            <small><?php _e('Episode', 'kar') ?><?php echo get_post_meta(get_the_ID(), 'kar_episode_number', true) ?></small>
+            <small><?php _e('Episode', 'kar') ?>
+                &nbsp<?php echo get_post_meta(get_the_ID(), 'kar_episode_number', true) ?></small>
             <small><?php echo gmdate("H:i:s", get_post_meta(get_the_ID(), 'kar_episode_audio_duration', true)) ?></small>
         </div>
         <div class="d-flex w-100 justify-content-between">

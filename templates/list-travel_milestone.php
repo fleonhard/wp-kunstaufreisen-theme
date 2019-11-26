@@ -21,7 +21,7 @@
     <div class="card-body">
         <small class="d-flex w-100">
             <?php _e('Day', 'kar') ?>
-            <?php echo ' ' . apply_filters('kar_get_milestone_day', get_the_ID()) ?>
+            <?php echo '&nbsp' . apply_filters('kar_get_milestone_day', get_the_ID()) ?>
         </small>
         <small class="d-flex w-100"><?php echo apply_filters('kar_get_milestone_location', get_the_ID()) ?></small>
         <div class="d-flex w-100 justify-content-between">
