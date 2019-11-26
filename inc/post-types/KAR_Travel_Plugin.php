@@ -44,6 +44,7 @@ if (!class_exists('KAR_Travel_Plugin')) {
             add_action('kar_add_milestone_meta', array($this, 'add_milestone_meta'));
 
             add_filter('kar_get_milestone_day', array($this, 'get_milestone_day'));
+            add_filter('kar_get_milestone_date', array($this, 'get_milestone_date'));
             add_filter('kar_get_trip_milestones', array($this, 'get_trip_milestones'));
             add_filter('kar_get_milestone_location', array($this, 'get_milestone_location'));
             add_filter('kar_get_milestone_trip_link', array($this, 'get_milestone_trip_link'));
@@ -88,6 +89,11 @@ if (!class_exists('KAR_Travel_Plugin')) {
             $start = DateTime::createFromFormat($format, $start_date);
             $step = DateTime::createFromFormat($format, $date);
             return ($step->diff($start)->format("%a"));
+        }
+
+        function get_milestone_date($milestone_id)
+        {
+            return date(get_option('date_format'), strtotime(get_post_meta($milestone_id, $this->MILESTONE_DATE_META, true)));
         }
 
         function add_milestone_meta()

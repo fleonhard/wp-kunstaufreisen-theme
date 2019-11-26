@@ -23,6 +23,9 @@
             <?php _e('Day', 'kar') ?>
             <?php echo '&nbsp' . apply_filters('kar_get_milestone_day', get_the_ID()) ?>
         </small>
+        <small class="d-flex w-100">
+            <?php echo apply_filters('kar_get_milestone_date', get_the_ID()) ?>
+        </small>
         <small class="d-flex w-100"><?php echo apply_filters('kar_get_milestone_location', get_the_ID()) ?></small>
         <div class="d-flex w-100 justify-content-between">
             <h3 class="mb-1 article-font"><?php the_title() ?></h3>

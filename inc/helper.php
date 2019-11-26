@@ -20,7 +20,7 @@ function random_lipsum($amount = 1, $what = 'paras', $start = 0)
 }
 
 /* Function which displays your post date in time ago format */
-function hs_time_ago()
+function hs_time_ago($date = null)
 {
     return human_time_diff(get_the_time('U'), current_time('timestamp')) . ' ' . __('ago');
 }
