@@ -10788,9 +10788,11 @@
         jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
         jQuery(document).ready(function ($) {
             function createFullscreenImageModal(toggle) {
+                if ($('#modal').length) return;
+                var imgSource = toggle.is('img') ? toggle : $(toggle).data('img');
                 var modal = document.createElement('div');
-                var imgSource = $(toggle.data('img'));
-                var modalImg = imgSource.clone();
+                modal.id = "modal";
+                var modalImg = $(imgSource).clone();
                 var x = document.createElement('span');
                 var parent = $(toggle).parent()[0];
                 x.innerHTML = '&times';
@@ -10837,29 +10839,33 @@
                         parent.removeChild(modal);
                     });
                 });
-                $(modal).innerText = "ALKSCMNVÖKM";
+            }
+
+            function openOnClick(toggle) {
+                $(toggle).on('click', function () {
+                    createFullscreenImageModal($(toggle));
+                });
             }
 
             $('.fullscreen-image-toggle').each(function () {
-                var toggle = $(this);
-                toggle.on('click', function () {
-                    createFullscreenImageModal(toggle);
-                });
+                openOnClick(this);
             });
-            var modal = document.getElementById("fullscreen-modal");
-            var img = document.getElementById("image-preview");
-
-            if (img) {
-                $(img).on('click', function () {
-                    $(modal).fadeIn(1000);
-
-                    function close() {
-                        $(modal).fadeOut(1000);
-                    }
-
-                    $(modal).on('click', close);
-                });
-            }
+            $('img').each(function () {
+                openOnClick(this);
+            }); // const modal = document.getElementById("fullscreen-modal");
+            //
+            // const img = document.getElementsByTagName("image-preview");
+            // if (img) {
+            //     $(img).on('click', function () {
+            //         $(modal).fadeIn(1000);
+            //
+            //         function close() {
+            //             $(modal).fadeOut(1000);
+            //         }
+            //
+            //         $(modal).on('click', close);
+            //     });
+            // }
         });
 
         /***/

@@ -11,9 +11,12 @@ jQuery = require('jquery');
 jQuery(document).ready(function ($) {
 
     function createFullscreenImageModal(toggle) {
+        if ($('#modal').length) return;
+        const imgSource = toggle.is('img') ? toggle : $(toggle).data('img');
+
         const modal = document.createElement('div');
-        const imgSource = $(toggle.data('img'));
-        const modalImg = imgSource.clone();
+        modal.id = "modal";
+        const modalImg = $(imgSource).clone();
         const x = document.createElement('span');
         const parent = $(toggle).parent()[0];
 
@@ -70,29 +73,34 @@ jQuery(document).ready(function ($) {
                 parent.removeChild(modal);
             });
         });
+    }
 
-        $(modal).innerText = "ALKSCMNVÖKM";
+    function openOnClick(toggle) {
+        $(toggle).on('click', function () {
+            createFullscreenImageModal($(toggle))
+        })
     }
 
     $('.fullscreen-image-toggle').each(function () {
-        const toggle = $(this);
-        toggle.on('click', function () {
-            createFullscreenImageModal(toggle)
-        })
+        openOnClick(this);
     });
 
-    const modal = document.getElementById("fullscreen-modal");
+    $('img').each(function () {
+        openOnClick(this);
+    });
 
-    const img = document.getElementById("image-preview");
-    if (img) {
-        $(img).on('click', function () {
-            $(modal).fadeIn(1000);
-
-            function close() {
-                $(modal).fadeOut(1000);
-            }
-
-            $(modal).on('click', close);
-        });
-    }
+    // const modal = document.getElementById("fullscreen-modal");
+    //
+    // const img = document.getElementsByTagName("image-preview");
+    // if (img) {
+    //     $(img).on('click', function () {
+    //         $(modal).fadeIn(1000);
+    //
+    //         function close() {
+    //             $(modal).fadeOut(1000);
+    //         }
+    //
+    //         $(modal).on('click', close);
+    //     });
+    // }
 });
