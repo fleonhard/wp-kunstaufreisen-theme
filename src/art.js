@@ -76,7 +76,7 @@ jQuery(document).ready(function ($) {
     }
 
     function openOnClick(toggle) {
-        $(toggle).on('click', function () {
+        $(toggle).on('click', function (e) {
             createFullscreenImageModal($(toggle))
         })
     }
@@ -86,7 +86,18 @@ jQuery(document).ready(function ($) {
     });
 
     $('img').each(function () {
-        openOnClick(this);
+        const parentLink = $(this).parent('a');
+        const urls = $(this).attr('srcset') ? $(this).attr('srcset').split(' ') : [];
+        urls.push($(this).data('full-url'));
+        urls.push($(this).src);
+
+        console.log(urls);
+        if (parentLink.length && urls.includes($(parentLink).attr('href'))) {
+            parentLink.on('click', function (e) {
+                e.preventDefault();
+            });
+            openOnClick(this);
+        }
     });
 
     // const modal = document.getElementById("fullscreen-modal");
