@@ -10,15 +10,18 @@ jQuery = require('jquery');
 
 jQuery(document).ready(function ($) {
 
-    function createFullscreenImageModal(toggle) {
+    function createFullscreenImageModal(imgEl, src) {
         if ($('#modal').length) return;
-        const imgSource = toggle.is('img') ? toggle : $(toggle).data('img');
+        //const imgEl = imgEl.is('img') ? imgEl : $(imgEl).data('img');
 
         const modal = document.createElement('div');
         modal.id = "modal";
-        const modalImg = $(imgSource).clone();
+
+        const modalImg = $(imgEl).clone();
+        modalImg.attr('src', src);
+
         const x = document.createElement('span');
-        const parent = $(toggle).parent()[0];
+        const parent = $(imgEl).parent()[0];
 
         x.innerHTML = '&times';
 
@@ -44,10 +47,10 @@ jQuery(document).ready(function ($) {
         });
 
         const defaultProps = {
-            top: $(imgSource).offset().top - $(window).scrollTop(),
-            left: $(imgSource).offset().left - $(window).scrollLeft(),
-            width: $(imgSource).width(),
-            height: $(imgSource).height(),
+            top: $(imgEl).offset().top - $(window).scrollTop(),
+            left: $(imgEl).offset().left - $(window).scrollLeft(),
+            width: $(imgEl).width(),
+            height: $(imgEl).height(),
             opacity: 0,
         };
 
@@ -63,6 +66,9 @@ jQuery(document).ready(function ($) {
             position: 'fixed',
             'z-index': 10,
             'background-color': 'rgba(0,0,0,0.7)',
+            'display': 'flex',
+            'align-items': 'center',
+            'justify-content': 'center',
             ...defaultProps
         });
 
@@ -75,28 +81,28 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    function openOnClick(toggle) {
-        $(toggle).on('click', function (e) {
-            createFullscreenImageModal($(toggle))
-        })
-    }
+    // function openOnClick(toggle, src) {
+    //     $(toggle).on('click', function (e) {
+    //         createFullscreenImageModal($(toggle), src)
+    //     })
+    // }
 
-    $('.fullscreen-image-toggle').each(function () {
-        openOnClick(this);
-    });
+    // $('.fullscreen-image-toggle').each(function () {
+    //     openOnClick(this, $($(this).data('img')).attr("src"));
+    // });
 
     $('img').each(function () {
-        const parentLink = $(this).parent('a');
+        const img = $(this);
+        const link = $(this).parent('a');
         const urls = $(this).attr('srcset') ? $(this).attr('srcset').split(' ') : [];
         urls.push($(this).data('full-url'));
-        urls.push($(this).src);
+        urls.push($(this).attr("src"));
 
-        console.log(urls);
-        if (parentLink.length && urls.includes($(parentLink).attr('href'))) {
-            parentLink.on('click', function (e) {
+        if (link.length && urls.includes($(link).attr('href'))) {
+            link.on('click', function (e) {
                 e.preventDefault();
+                createFullscreenImageModal(img, $(link).attr('href'));
             });
-            openOnClick(this);
         }
     });
 

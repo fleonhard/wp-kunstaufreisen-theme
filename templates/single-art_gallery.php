@@ -32,11 +32,11 @@
             <?php global $post; ?>
             <?php foreach ($images as $image): ?>
                 <div class="gallery-item">
-                    <img id="image-<?php echo $topic->term_id . $image->ID ?>"
-                         src="<?php echo get_the_post_thumbnail_url($image->ID) ?>"
-                         alt="<?php echo get_the_post_thumbnail_caption($image->ID) ?>"
-                         class=" fullscreen-image-toggle"
-                         data-img="#image-<?php echo $topic->term_id . $image->ID ?>">
+                    <a href="<?php echo get_the_post_thumbnail_url($image->ID) ?>">
+                        <img id="image-<?php echo $topic->term_id . $image->ID ?>"
+                             src="<?php echo get_the_post_thumbnail_url($image->ID) ?>"
+                             alt="<?php echo get_the_post_thumbnail_caption($image->ID) ?>">
+                    </a>
                     <a class="overlay kar-link" href="<?php echo get_the_permalink($image->ID) ?>">
                         <div><?php echo get_the_title($image->ID) ?></div>
                     </a>

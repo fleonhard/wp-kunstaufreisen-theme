@@ -5,12 +5,13 @@
  * @package kar
  */
 ?>
-<footer class="page-footer container-fluid">
+<footer class="page-footer container-fluid bg-dark">
     <div class="row">
-        <div class="container">
-            <div class="row">
-                <!--                <div class="copyright col-12 text-center">--><? //= hs_site_info() ?><!--</div>-->
-            </div>
+        <div class="col-12 d-flex justify-content-center align-items-center
+">
+            <?php $theme = wp_get_theme();
+            echo $theme->Name . '&nbsp;' . $theme->Version . '&nbsp;&nbsp;' . '&copy;' . '&nbsp;' . 'Copyright' . '&nbsp;' . date("Y") . '&nbsp;' . '<a href="https://herborn-software.com" class="kar-link">Herborn-Software</a>';
+            ?>
         </div>
     </div>
 </footer>

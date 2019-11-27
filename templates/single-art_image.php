@@ -9,9 +9,11 @@
 ?>
 <?php if (has_post_thumbnail()): ?>
     <div class="col-12 col-lg-6 mb-4">
-        <img id="image-preview" src="<?php echo get_the_post_thumbnail_url() ?>"
-             alt="<?php echo get_the_post_thumbnail_caption() ?>" class="w-100 fullscreen-image-toggle"
-             data-img="#image-preview">
+        <a href="<?php echo get_the_post_thumbnail_url() ?>">
+            <img src="<?php echo get_the_post_thumbnail_url() ?>"
+                 alt="<?php echo get_the_post_thumbnail_caption() ?>" class="w-100"
+            <!--data-img="#image-preview"-->>
+        </a>
     </div>
 <?php endif; ?>
 

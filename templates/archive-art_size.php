@@ -28,12 +28,13 @@
                 while (have_posts()) {
                     the_post();
                     ?>
+
                     <div class="gallery-item">
-                        <img id="image-<?php echo get_the_ID() ?>"
-                             src="<?php echo get_the_post_thumbnail_url() ?>"
-                             alt="<?php echo get_the_post_thumbnail_caption() ?>"
-                             class=" fullscreen-image-toggle"
-                             data-img="#image-<?php echo get_the_ID() ?>">
+                        <a href="<?php echo get_the_post_thumbnail_url() ?>">
+                            <img id="image-<?php echo get_the_ID() ?>"
+                                 src="<?php echo get_the_post_thumbnail_url() ?>"
+                                 alt="<?php echo get_the_post_thumbnail_caption() ?>">
+                        </a>
                         <a class="overlay kar-link" href="<?php echo get_the_permalink() ?>">
                             <div><?php echo get_the_title() ?></div>
                         </a>
