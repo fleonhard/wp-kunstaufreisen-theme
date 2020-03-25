@@ -140,6 +140,12 @@ function registerTripDetail() {
             });
 
 
+            const query_milestone = getQueryMilestoneId();
+            if (query_milestone) {
+                scrollToMilestone(query_milestone);
+            }
+
+
             map.on('load', async function () {
 
 
@@ -234,12 +240,6 @@ function registerTripDetail() {
                     last = null;
                     map.fitBounds(bounds, {padding: 50});
                 });
-
-
-                const query_milestone = getQueryMilestoneId();
-                if (query_milestone) {
-                    scrollToMilestone(query_milestone);
-                }
 
 
             });
