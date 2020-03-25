@@ -118,7 +118,7 @@ if (!class_exists('KAR_Travel_Plugin')) {
                 'post_status' => 'publish',
                 'post_type' => $this->MILESTONE_TYPE,
                 'meta_key' => $this->MILESTONE_DATE_META,
-                'order' => 'ASC',
+                'order' => 'DESC',
                 'orderby' => 'meta_value ' . $this->MILESTONE_DATE_META,
                 'meta_query' => array(
                     'key' => $this->MILESTONE_TRIP_META,

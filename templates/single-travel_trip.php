@@ -27,15 +27,15 @@
     <div id="milestone_container" class="row">
         <?php
         $milestones = apply_filters('kar_get_trip_milestones', get_the_ID());
-        if ($milestones->have_posts()) {
-            while ($milestones->have_posts()) {
-                $milestones->the_post();
-                echo '<div class="col-12" style="margin-bottom: 40px">';
-                do_action('kar_add_milestone_meta');
-                do_action('kar_get_template', 'list');
-                echo '</div>';
-            }
-        }
+                 if ($milestones->have_posts()) {
+                     while ($milestones->have_posts()) {
+                         $milestones->the_post();
+                         echo '<div class="col-12" style="margin-bottom: 40px">';
+                         do_action('kar_add_milestone_meta');
+                         do_action('kar_get_template', 'list');
+                         echo '</div>';
+                     }
+                 }
         wp_reset_postdata();
         ?>
     </div>
