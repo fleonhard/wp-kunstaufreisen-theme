@@ -105,3 +105,20 @@ li.active a.kar-link,
   @extend .ml-1;
   font-size: 12px;
 }
+
+
+.sidebar-image-link {
+  position: relative;
+}
+.sidebar-image {
+  width: 100%;
+}
+.paypal-symbol {
+  background: rgba(255, 255, 255, 0.6) url(https://www.kunstaufreisen.com/wp-content/uploads/2020/03/logo_paypal_106x27.png) no-repeat center;
+  height: 20px;
+  padding: 16px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
