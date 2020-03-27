@@ -10959,6 +10959,7 @@ li.active a.comment-reply-link:after,
 
 .sidebar-image-link {
   position: relative;
+  display: block;
 }
 
 .sidebar-image {
